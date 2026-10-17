@@ -381,7 +381,7 @@ a:hover {
   flex-direction: column;
   min-height: calc(100vh - var(--ink-header-h));
   min-height: calc(100svh - var(--ink-header-h));
-  padding-top: clamp(56px, 9vw, 120px);
+  padding-top: clamp(40px, 5vw, 72px);
   padding-bottom: 0;
 }
 
