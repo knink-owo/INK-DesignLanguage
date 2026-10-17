@@ -201,14 +201,18 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
 
 .display__line { display: block; }
 
+/* 轮廓字：整字空心，与方向 B（瑞士海报）样张同一做法。
+   600 字重 + 1.6px 墨色描边，形状填透明；描边宽度小于笔画宽度，
+   所以空心只沿每根笔画走一圈，不会把整字糊成一块。 */
 .display__outline {
   display: block;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   -webkit-text-stroke: var(--ink-stroke-display) var(--ink-ink);
 }
 
 @supports not (-webkit-text-stroke: 1px black) {
-  .display__outline { color: var(--ink-text-primary); }
+  .display__outline { color: var(--ink-ink); }
 }
 
 .hero__lead {
@@ -1199,6 +1203,10 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
   .site-footer__brand-col { grid-column: 1 / -1; }
 }
 
+@media (max-width: 980px) {
+  .display__outline { -webkit-text-stroke-width: 1.4px; }
+}
+
 @media (max-width: 680px) {
   .brand__sub { display: none; }
 
@@ -1220,7 +1228,7 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
     padding: var(--ink-space-6) var(--ink-gutter) var(--ink-space-7);
   }
 
-  .display__outline { -webkit-text-stroke-width: 1.5px; }
+  .display__outline { -webkit-text-stroke-width: 1.2px; }
 
   .hero__foot { flex-direction: column; align-items: flex-start; gap: var(--ink-space-3); }
 

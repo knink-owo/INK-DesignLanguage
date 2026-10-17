@@ -154,6 +154,7 @@
 - **翻页：** `.pager` 加 `.pager__link`（`--next`），内部 `__dir`、`__title`。
 - **浮层：** `<dialog class="sheet" id="…">` 加 `.sheet__inner/__head/__title/__close/__body/__steps/__step/__step-num/__step-title/__step-text/__actions`。触发写 `data-sheet-open="id"`，关闭写 `data-sheet-close`。
 - **页脚：** `.site-footer` 四列加 `.site-footer__bottom`，示例触发按钮用 `.link-button`。
+- **轮廓字：** `.display__outline` 用 600 字重 + `-webkit-text-stroke: var(--ink-stroke-display)`（桌面 1.6px，980px 及以下 1.4px，680px 及以下 1.2px），形状填透明。不要写裸描边宽度，也不要给轮廓字加滤镜或加粗到 700。
 - **目录行：** `.chapter-index` 加 `a.chapter-row`（`--lake` 等八种色），内部 `__num`、`__title`、`__lede`、`__arrow`。悬停时整行填色。
 
 新增 class 之前先看 `site.css` 有没有现成的；没有就用现成组合表达，并在提交说明里写清楚。页面里不写 `<style>`。
