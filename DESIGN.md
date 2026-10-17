@@ -1,6 +1,6 @@
 # INK · 设计规范
 
-版本 v1.1（2026-10）。实现：`site/tokens.css` 1.1.0。
+版本 v1.1（2026-10）。实现：`site/tokens.css` 1.1.1。
 
 本文件解释为什么。怎么做和验收看 `AGENTS.md`。数值只改 `tokens.css`，再由 `tools/sync_tokens.py` 生成 `tokens.json`。
 
@@ -255,6 +255,7 @@ macOS 落苹方，Windows 落微软雅黑，Linux 落 Noto Sans SC。不引第�
 
 ## 12. 版本
 
+- **v1.1.1（2026-10）：** 首屏展示字体改为等线 Bold（`--ink-font-display`），第二行改成整字空心（feMorphology 先合并字形再取外轮廓环），实心行加 `--ink-stroke-solid` 描边提重。
 - **v1.1（2026-10）：** 首屏改左字右色墙，章节页改整面色场；中性色扩到八组；字重去掉 300；焦点环统一；文案重写；新增 `sync_tokens.py`；工具链修复退出码、构建轮询与测试宽度。
 - **v1.0（2026-10）：** 首页加五章规范、agent 四件套、Pages 上线。
 
