@@ -1,0 +1,30 @@
+# INK Design Language
+
+> 先感受，再解释。纸白底、墨黑字、八个色场、直角与 1px 线。
+
+INK 是一套个人设计语言。本仓库同时是规范文档与展示站，纯静态、零依赖。
+
+## 入口
+
+- 展示站：https://knink-owo.github.io/INK-DesignLanguage/
+- 首页：https://knink-owo.github.io/INK-DesignLanguage/index.html
+- 设计规范（人读）：https://knink-owo.github.io/INK-DesignLanguage/DESIGN.md
+- Agent 实现约束：https://knink-owo.github.io/INK-DesignLanguage/AGENTS.md
+- 设计变量：https://knink-owo.github.io/INK-DesignLanguage/tokens.css
+- 变量 JSON：https://knink-owo.github.io/INK-DesignLanguage/tokens.json
+
+## 章节
+
+- 色彩：spec/color.html · 八个色场 + 四个中性色 + 对比度实测
+- 文字：spec/typography.html · 系统字体栈 + 字号阶梯 + 中英混排
+- 空间：spec/space.html · 十级间距 + 网格 + 断点
+- 组件：spec/components.html · 直角按钮 / 输入 / 面板 / 标签
+- 语气与动效：spec/voice-motion.html · 文案语气 + 时长缓动 + 空间连续性
+
+## 给模型使用
+
+1. 先读 DESIGN.md 的「设计定位」「不做什么」两节，确认边界。
+2. 再读 AGENTS.md 的硬约束与页面骨架，只用其中的 token 与类名。
+3. 所有颜色、字号、间距、圆角、动效必须来自 tokens.css；不新增品牌色、不改圆角（恒 0）、无渐变。
+4. 关键数字：圆角 0px；内容区 1200px；正文 1rem / 行高 1.75；触控目标 44px；色场文字 #16211D；展开动效 380ms。
+5. 明确不做：个人介绍、博客、作品案例、3D/AI 插画、评论 CMS、深色模式、多语言、滚动劫持。

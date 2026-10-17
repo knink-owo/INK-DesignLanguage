@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>语气与动效 · INK Design Language</title>
+  <meta name="description" content="INK 语气与动效规范：文案语气、时长与缓动、空间连续性，以及减少动态效果下的降级。">
+  <meta name="theme-color" content="#FAF9F5">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到内容</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html">INK <span class="brand__sub">/ Design Language</span></a>
+      <nav class="site-nav" aria-label="规范正文">
+        <a href="color.html">色彩</a>
+        <a href="typography.html">文字</a>
+        <a href="space.html">空间</a>
+        <a href="components.html">组件</a>
+        <a href="voice-motion.html" aria-current="page">语气与动效</a>
+      </nav>
+      <a class="nav-agent" href="../AGENTS.md">给 Agent</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="chapter-hero">
+      <div class="wrap">
+        <div class="chapter-hero__meta">
+          <a class="kicker" href="../index.html">INK / 规范</a>
+          <span class="chip">CH 05 · VOICE &amp; MOTION</span>
+        </div>
+        <h1 class="h1 chapter-hero__title">语气与动效。<br>先感受，再解释。</h1>
+        <p class="lede chapter-hero__lede">语气决定被不被信任，动效决定变化被不被理解。两者都在做同一件事：让界面像人说话，而不是像系统通知。</p>
+      </div>
+    </header>
+
+    <div class="chapter-body">
+      <div class="wrap">
+        <section class="spec-section">
+          <div class="spec-head">
+            <div>
+              <span class="spec-head__index">01 / VOICE</span>
+              <h2 class="h2">语气</h2>
+            </div>
+            <p class="lede">短句、动词具体、不吓人、给出下一步。不用敬语堆叠，也不用感叹号撑情绪；轻松不等于随便。</p>
+          </div>
+
+          <div class="voices">
+            <div class="voice">
+              <span class="voice__label">操作按钮</span>
+              <p class="voice__line voice__line--do"><span class="voice__mark" aria-hidden="true">✓</span><span><span class="visually-hidden">推荐：</span>开始吧</span></p>
+              <p class="voice__line voice__line--dont"><span class="voice__mark" aria-hidden="true">✕</span><span><span class="visually-hidden">避免：</span>立即开始体验</span></p>
+            </div>
+            <div class="voice">
+              <span class="voice__label">出错提示</span>
+              <p class="voice__line voice__line--do"><span class="voice__mark" aria-hidden="true">✓</span><span><span class="visually-hidden">推荐：</span>这里没填对，再试一次</span></p>
+              <p class="voice__line voice__line--dont"><span class="voice__mark" aria-hidden="true">✕</span><span><span class="visually-hidden">避免：</span>操作失败（错误码 400）</span></p>
+            </div>
+            <div class="voice">
+              <span class="voice__label">空状态</span>
+              <p class="voice__line voice__line--do"><span class="voice__mark" aria-hidden="true">✓</span><span><span class="visually-hidden">推荐：</span>这里还空着，来写第一笔</span></p>
+              <p class="voice__line voice__line--dont"><span class="voice__mark" aria-hidden="true">✕</span><span><span class="visually-hidden">避免：</span>暂无数据</span></p>
+            </div>
+            <div class="voice">
+              <span class="voice__label">确认危险操作</span>
+              <p class="voice__line voice__line--do"><span class="voice__mark" aria-hidden="true">✓</span><span><span class="visually-hidden">推荐：</span>删掉这两段？删了就找不回来。</span></p>
+              <p class="voice__line voice__line--dont"><span class="voice__mark" aria-hidden="true">✕</span><span><span class="visually-hidden">避免：</span>确认删除？</span></p>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-top: var(--ink-space-5);">
+            <strong>一句话只做一件事。</strong>解释原因的句子，不要顺手加操作；要求操作的句子，先给后果。用户读不完第二行。
+          </div>
+        </section>
+
+        <section class="spec-section">
+          <div class="spec-head">
+            <div>
+              <span class="spec-head__index">02 / TIMING</span>
+              <h2 class="h2">时长与缓动</h2>
+            </div>
+            <p class="lede">动效只解释变化：从哪里来、去了哪里、什么被替换。它不负责添加气氛，也不负责让人「哇」。</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="spec-table">
+              <caption>时长刻度</caption>
+              <thead>
+                <tr>
+                  <th scope="col">场景</th>
+                  <th scope="col">时长</th>
+                  <th scope="col">缓动</th>
+                  <th scope="col">变量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>悬停反馈</td><td class="mono">200ms</td><td>快出、轻收</td><td><code>--ink-duration-hover</code></td></tr>
+                <tr><td>按下确认</td><td class="mono">140ms</td><td>到位即停</td><td><code>--ink-duration-press</code></td></tr>
+                <tr><td>空间展开</td><td class="mono">380ms</td><td>带一点吸附感</td><td><code>--ink-duration-expand</code></td></tr>
+                <tr><td>页面进入</td><td class="mono">420ms</td><td>减速收尾</td><td><code>--ink-duration-page</code></td></tr>
+                <tr><td>同组依次进入</td><td class="mono">+45ms / 项</td><td>不叠加抖动</td><td><code>--ink-stagger</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="grid grid--2" style="margin-top: var(--ink-space-6);">
+            <div class="panel">
+              <span class="panel__label">SNAP / 吸附</span>
+              <p class="dim mono" style="margin-bottom: var(--ink-space-3);">cubic-bezier(0.17, 0.89, 0.32, 1.18)</p>
+              <p>用于空间展开与回到原处。轻微过冲，让「展开」有物理感；幅度只允许这一档。</p>
+            </div>
+            <div class="panel">
+              <span class="panel__label">EASE / 收放</span>
+              <p class="dim mono" style="margin-bottom: var(--ink-space-3);">ease-in · ease-out</p>
+              <p>悬停与按下用 ease-in（快速回应，缓慢收住）；退场和页面进入用 ease-out（先快后慢，不拖尾）。</p>
+            </div>
+          </div>
+
+          <div class="callout callout--warn" style="margin-top: var(--ink-space-5);">
+            <strong>不做滚动劫持，不做视差。</strong>页面滚动永远由用户控制；需要讲长故事时，用章节，不用滚动坐标。不做无限循环的装饰动画，也不做「惊喜」式动效。
+          </div>
+        </section>
+
+        <section class="spec-section">
+          <div class="spec-head">
+            <div>
+              <span class="spec-head__index">03 / CONTINUITY</span>
+              <h2 class="h2">空间连续性</h2>
+            </div>
+            <p class="lede">面板从触发它的位置展开，关闭时回到原处；底层页面不换、不滚、不清空，焦点在关闭后回到触发元素。这是这套语言里唯一允许「炫」的地方。</p>
+          </div>
+
+          <div class="demo-stage demo-stage--column">
+            <p class="dim" style="margin: 0;">点开下面的按钮：注意面板从哪里长出来，关闭时又回到哪里。</p>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--ink-space-3);">
+              <button class="btn btn--primary" type="button" data-sheet-open="ink-sheet">打开空间连续性示例</button>
+              <a class="btn" href="../index.html#easter">去首页彩蛋 →</a>
+            </div>
+          </div>
+          <p class="demo-caption">使用原生 <code>&lt;dialog&gt;</code> + Web Animations API；Esc、遮罩点击、关闭按钮三种方式返回，焦点自动回到触发处。</p>
+        </section>
+
+        <section class="spec-section">
+          <div class="spec-head">
+            <div>
+              <span class="spec-head__index">04 / A11Y</span>
+              <h2 class="h2">降级与无障碍</h2>
+            </div>
+            <p class="lede">动效是增强，不是功能。关掉动画，功能一个不少；键盘用户不用碰到鼠标，也能完成同一件事。</p>
+          </div>
+
+          <div class="do-dont">
+            <div class="do-dont__panel do-dont__panel--do">
+              <p class="do-dont__head"><span aria-hidden="true">✓</span> DO / 这样做</p>
+              <div class="do-dont__body">
+                <p>所有过渡与动画都在 <code>prefers-reduced-motion</code> 下降为 0ms。</p>
+                <p>焦点环始终可见：2px 墨色描边、外扩 4px。</p>
+                <p>打开对话框后焦点进入面板；关闭后回到触发元素。</p>
+                <p>提供 <code>.visually-hidden</code> 文案给屏幕阅读器，不用占位文字代替标签。</p>
+              </div>
+            </div>
+            <div class="do-dont__panel do-dont__panel--dont">
+              <p class="do-dont__head"><span aria-hidden="true">✕</span> DON'T / 不要这样</p>
+              <div class="do-dont__body">
+                <p>不要在 <code>focus</code> 时移动元素，焦点需要稳定。</p>
+                <p>不要只用颜色表示选中或错误状态。</p>
+                <p>不要让动画阻塞交互；动效结束前按钮必须仍可点。</p>
+                <p>不要用自动播放的循环动画吸引注意。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="spec-section">
+          <div class="spec-head">
+            <div>
+              <span class="spec-head__index">05 / TOKENS</span>
+              <h2 class="h2">变量</h2>
+            </div>
+            <p class="lede">时长、缓动、位移幅度都是变量。改一处，全站一起变——这也是给 Agent 用的原因之一。</p>
+          </div>
+
+          <div class="code-block">
+            <div class="code-block__head">
+              <span>tokens.css · 动效</span>
+              <button class="copy-btn" type="button" data-copy-target="#motion-tokens">复制</button>
+            </div>
+            <pre id="motion-tokens"><code>--ink-ease-in: cubic-bezier(0.1, 0.9, 0.2, 1);
+--ink-ease-out: cubic-bezier(0.7, 0, 1, 0.5);
+--ink-ease-snap: cubic-bezier(0.17, 0.89, 0.32, 1.18);
+
+--ink-duration-hover: 200ms;
+--ink-duration-press: 140ms;
+--ink-duration-expand: 380ms;
+--ink-duration-page: 420ms;
+--ink-stagger: 45ms;
+
+--ink-hover-lift: -3px;
+--ink-press-scale: 0.975;
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ink-duration-hover: 0ms;
+    --ink-duration-press: 0ms;
+    --ink-duration-expand: 0ms;
+    --ink-duration-page: 0ms;
+    --ink-stagger: 0ms;
+    --ink-hover-lift: 0px;
+    --ink-press-scale: 1;
+  }
+}</code></pre>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="章节目录">
+          <a class="pager__link" href="components.html">
+            <span class="pager__dir">← 上一章</span>
+            <span>组件 · 方角，清晰的边</span>
+          </a>
+          <a class="pager__link pager__link--next" href="../index.html">
+            <span class="pager__dir">回到开头 →</span>
+            <span>首页 · 先感受，再解释</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="kicker" style="margin-bottom: var(--ink-space-2);">INK / DESIGN LANGUAGE</p>
+        <p>v1.0 · 个人设计语言标本，不是产品页面模板。</p>
+      </div>
+      <div class="site-footer__links" aria-label="规范文件与链接">
+        <a href="../index.html">首页</a>
+        <a href="../DESIGN.md">DESIGN.md</a>
+        <a href="../tokens.css">tokens.css</a>
+        <a href="../AGENTS.md">AGENTS.md</a>
+        <a href="https://github.com/knink-owo/INK-DesignLanguage">GitHub ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="sheet" id="ink-sheet" aria-labelledby="sheet-title">
+    <div class="sheet__inner">
+      <button class="sheet__close" type="button" data-sheet-close aria-label="关闭并返回原处">✕</button>
+      <p class="kicker sheet__eyebrow">ORIGIN → DETAIL → RETURN</p>
+      <h2 class="h2 sheet__title" id="sheet-title">你没有离开，<br>只是深入了一层。</h2>
+      <p class="lede sheet__lede">面板从触发按钮的几何位置展开；底层页面没有被替换，滚动位置和焦点都还在原地。关闭时，它回到出发的地方。</p>
+      <div class="sheet__steps">
+        <div class="sheet__step">
+          <strong>01 / Origin</strong>
+          来源：从触发元素的几何位置展开，方向可以理解。
+        </div>
+        <div class="sheet__step">
+          <strong>02 / Context</strong>
+          上下文：底层页面保留，不打断正在做的事。
+        </div>
+        <div class="sheet__step">
+          <strong>03 / Return</strong>
+          返回：关闭或按 Esc，焦点回到触发元素。
+        </div>
+      </div>
+      <div class="sheet__actions">
+        <button class="btn btn--primary" type="button" data-sheet-close>返回原处</button>
+        <a class="btn" href="color.html">从色彩重新开始</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="../assets/site.js" defer></script>
+</body>
+</html>
