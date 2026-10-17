@@ -202,38 +202,7 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
 
 .display__line {
   display: block;
-  -webkit-text-stroke: var(--ink-stroke-solid) var(--ink-ink);
 }
-
-
-/* 轮廓字：整字空心。不是沿每根笔画描边（那样笔画之间会断开、密集处发糊），
-   而是先用 SVG feMorphology 把整个字形外扩合并，再减去内缩形状，只留外轮廓环。
-   滤镜定义在 index.html 顶部（#ink-outline / -md / -sm），三档半径见 site.css 断点。
-   不支持 URL 滤镜时退回 2.4px 墨色描边，观感接近但笔画不合并。 */
-.display__outline {
-  display: block;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: var(--ink-stroke-display) var(--ink-ink);
-}
-
-@supports (filter: blur(0px)) {
-  .display__outline {
-    color: var(--ink-ink);
-    -webkit-text-fill-color: var(--ink-ink);
-    -webkit-text-stroke-width: 0;
-    filter: url(#ink-outline);
-  }
-}
-
-.svg-defs {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
-
-.svg-defs feFlood { flood-color: var(--ink-ink); }
 
 .hero__lead {
   max-width: 30em;
@@ -1224,17 +1193,8 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
   .site-footer__brand-col { grid-column: 1 / -1; }
 }
 
-@media (max-width: 980px) {
-  .display__outline { -webkit-text-stroke-width: 2px; }
-  @supports (filter: blur(0px)) {
-    .display__outline { filter: url(#ink-outline-md); }
-  }
-}
-
 @media (max-width: 680px) {
   .brand__sub { display: none; }
-
-  .display__line { -webkit-text-stroke-width: 1px; }
 
   .site-nav {
     gap: var(--ink-space-3);
@@ -1252,11 +1212,6 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
 
   .hero__copy {
     padding: var(--ink-space-6) var(--ink-gutter) var(--ink-space-7);
-  }
-
-  .display__outline { -webkit-text-stroke-width: 1.6px; }
-  @supports (filter: blur(0px)) {
-    .display__outline { filter: url(#ink-outline-sm); }
   }
 
   .hero__foot { flex-direction: column; align-items: flex-start; gap: var(--ink-space-3); }

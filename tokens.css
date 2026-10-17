@@ -1,6 +1,6 @@
 /* ==========================================================================
    INK Design Language · tokens.css
-   v1.1 · implementation 1.1.1 · 2026-10
+   v1.1 · implementation 1.1.2 · 2026-10
    --------------------------------------------------------------------------
    全站唯一的数值来源。改视觉先改这里，再同步：
    - site/tokens.json   （machine twin，由 tools/sync_tokens.py 生成）
@@ -52,7 +52,7 @@
   /* --- 字体 ----------------------------------------------------------- */
   --ink-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  /* 展示栈：等线/苹方这类几何黑体，笔画均匀、字洞大，适合做整字空心。 */
+  /* 展示栈：等线/苹方这类几何黑体，笔画均匀、字洞大，用于首屏大字。 */
   --ink-font-display: "DengXian", "PingFang SC", "HarmonyOS Sans SC",
     "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --ink-font-mono: "Cascadia Code", "SFMono-Regular", Consolas,
@@ -79,8 +79,6 @@
   --ink-leading-body: 1.75;
   --ink-tracking-display: -0.035em;
   --ink-tracking-label: 0.14em;
-  --ink-stroke-display: 2.4px;   /* 轮廓字兜底描边；980 → 2，680 → 1.6 */
-  --ink-stroke-solid: 1.4px;     /* 首屏实心行加粗描边；680 → 1px */
 
 
   /* --- 间距：只用这十个数 --------------------------------------------- */

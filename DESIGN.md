@@ -1,6 +1,6 @@
 # INK · 设计规范
 
-版本 v1.1（2026-10）。实现：`site/tokens.css` 1.1.1。
+版本 v1.1（2026-10）。实现：`site/tokens.css` 1.1.2。
 
 本文件解释为什么。怎么做和验收看 `AGENTS.md`。数值只改 `tokens.css`，再由 `tools/sync_tokens.py` 生成 `tokens.json`。
 
@@ -100,7 +100,7 @@ INK 是一套面向中文界面的设计语言。八个色场负责分区，1px 
 全部用系统字体，不下载字体文件。
 
 - 正文：`-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif`
-- 首屏展示：`"DengXian", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif`（几何黑体，笔画均匀、字洞大，适合整字空心）
+- 首屏展示：`"DengXian", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif`（几何黑体，笔画均匀、字洞大，用于首屏大字）
 - 等宽：`"Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace`
 
 macOS 落苹方，Windows 落微软雅黑，Linux 落 Noto Sans SC。不引第三方字体，也不做字号回退网络请求。
@@ -119,11 +119,11 @@ macOS 落苹方，Windows 落微软雅黑，Linux 落 Noto Sans SC。不引第�
 | `--ink-size-mono` | 代码 | 12px |
 | `--ink-size-label` | 等宽标签 | 11px |
 
-字重分三档：正文 400，章节标题 600，首屏字标 700 再加 1.4px 描边提重。没有 300。字重够重，字号才敢放大，也才压得住色块。
+字重分三档：正文 400，章节标题 600，首屏字标 700。没有 300。字重够重，字号才敢放大，也才压得住色块。
 
 行高：标题 1.14，正文 1.75，首屏 1.0。字距：首屏 -0.035em，全大写等宽标签 0.14em。
 
-首屏两行同一套展示字体（等线 Bold，Windows；苹方 Semibold，macOS）：第一行实心，第二行整字空心。空心不是沿每根笔画描边（笔画之间会断开、密集处发糊），而是先用 SVG `feMorphology` 把整个字形外扩、合并成一块，再减去内缩的形状，只留下外轮廓环：外扩与环宽桌面都是 3px；980px 及以下收到 2px，680px 及以下收到 1px。滤镜定义在 `index.html` 顶部的 SVG `defs`（`#ink-outline` / `-md` / `-sm`）。浏览器不支持 URL 滤镜时退回 2.4px 墨色描边（`--ink-stroke-display`，窄屏 2 / 1.6px），观感接近，但笔画之间不会合并。
+首屏两行同一套展示字体（等线 Bold，Windows；苹方 Semibold，macOS），700 字重，都是实心墨色。没有空心字、没有描边、不引外部字体；对比靠字号和右侧色墙，不靠字形花样。
 
 ### 4.3 中文排版
 
@@ -255,6 +255,7 @@ macOS 落苹方，Windows 落微软雅黑，Linux 落 Noto Sans SC。不引第�
 
 ## 12. 版本
 
+- **v1.1.2（2026-10）：** 首屏两行都改回实心（去掉整字空心、SVG 滤镜与描边），只保留展示字体与 700 字重。
 - **v1.1.1（2026-10）：** 首屏展示字体改为等线 Bold（`--ink-font-display`），第二行改成整字空心（feMorphology 先合并字形再取外轮廓环），实心行加 `--ink-stroke-solid` 描边提重。
 - **v1.1（2026-10）：** 首屏改左字右色墙，章节页改整面色场；中性色扩到八组；字重去掉 300；焦点环统一；文案重写；新增 `sync_tokens.py`；工具链修复退出码、构建轮询与测试宽度。
 - **v1.0（2026-10）：** 首页加五章规范、agent 四件套、Pages 上线。

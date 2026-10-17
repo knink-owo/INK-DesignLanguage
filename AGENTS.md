@@ -154,7 +154,7 @@
 - **翻页：** `.pager` 加 `.pager__link`（`--next`），内部 `__dir`、`__title`。
 - **浮层：** `<dialog class="sheet" id="…">` 加 `.sheet__inner/__head/__title/__close/__body/__steps/__step/__step-num/__step-title/__step-text/__actions`。触发写 `data-sheet-open="id"`，关闭写 `data-sheet-close`。
 - **页脚：** `.site-footer` 四列加 `.site-footer__bottom`，示例触发按钮用 `.link-button`。
-- **轮廓字：** 首屏两行都用展示字体（`--ink-font-display`，等线 Bold）。第一行 `.display__line` 实心，靠 `-webkit-text-stroke: var(--ink-stroke-solid)` 加粗；第二行 `.display__outline` 是整字空心，靠 `index.html` 顶部的 SVG 滤镜（`#ink-outline` / `-md` / `-sm`）先合并字形再取外轮廓环。半径只在 SVG `defs` 与 `site.css` 的两个断点里写，不要分散到页面。不支持 URL 滤镜时自动退回描边。
+- **首屏大字：** `.display` 两行都用展示字体（`--ink-font-display`，等线 Bold / 苹方 Semibold），700 字重，都是实心墨色，各用 `.display__line`。不用空心字、不加描边、不引外部字体；`.display__outline` 已废弃。
 - **目录行：** `.chapter-index` 加 `a.chapter-row`（`--lake` 等八种色），内部 `__num`、`__title`、`__lede`、`__arrow`。悬停时整行填色。
 
 新增 class 之前先看 `site.css` 有没有现成的；没有就用现成组合表达，并在提交说明里写清楚。页面里不写 `<style>`。
