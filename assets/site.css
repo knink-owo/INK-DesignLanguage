@@ -53,17 +53,6 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
   padding-inline: var(--ink-gutter);
 }
 
-.visually-hidden {
-  position: absolute !important;
-  width: 1px; height: 1px;
-  margin: -1px; padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
-}
-
 .skip-link {
   position: absolute;
   top: var(--ink-space-2);
@@ -82,7 +71,7 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
 .mono-label {
   display: block;
   font-family: var(--ink-font-mono);
-  font-size: var(--ink-size-label);
+  font-size: var(--ink-size-mono);
   font-weight: 400;
   letter-spacing: var(--ink-tracking-label);
   text-transform: uppercase;
@@ -352,7 +341,7 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
 }
 
 .chapter-hero__lede {
-  max-width: 28ch;
+  max-width: 34em;
   margin-top: var(--ink-space-5);
   font-size: var(--ink-size-lead);
   line-height: 1.65;
@@ -435,13 +424,10 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
 }
 
 .chapter-row--lake  { --row-tone: var(--ink-lake); }
-.chapter-row--sky   { --row-tone: var(--ink-sky); }
 .chapter-row--moss  { --row-tone: var(--ink-moss); }
 .chapter-row--lotus { --row-tone: var(--ink-lotus); }
-.chapter-row--wheat { --row-tone: var(--ink-wheat); }
 .chapter-row--clay  { --row-tone: var(--ink-clay); }
 .chapter-row--stone { --row-tone: var(--ink-stone); }
-.chapter-row--rouge { --row-tone: var(--ink-rouge); }
 
 /* --- 原则行 -------------------------------------------------------------- */
 
@@ -696,7 +682,10 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
 
 .btn:hover { background: var(--ink-ink); color: var(--ink-canvas); }
 
-.btn:active { transform: scale(var(--ink-press-scale)); }
+.btn:active {
+  transform: scale(var(--ink-press-scale));
+  transition-duration: var(--ink-duration-press);
+}
 
 .btn--primary {
   background: var(--ink-ink);
@@ -1003,7 +992,7 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
 
 .site-footer {
   background: var(--ink-ink-deep);
-  color: var(--ink-canvas);
+  color: var(--ink-text-on-ink);
   padding-block: clamp(var(--ink-space-7), 7vw, var(--ink-space-9));
 }
 
@@ -1072,7 +1061,7 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
   max-height: calc(100dvh - var(--ink-space-6));
   padding: 0;
   border: var(--ink-border-strong);
-  border-radius: 0;
+  border-radius: var(--ink-radius);
   background: var(--ink-canvas);
   color: var(--ink-text-primary);
   box-shadow: var(--ink-shadow-modal);

@@ -14,6 +14,8 @@
 <meta property="og:title" content="INK 空间规范：间距与网格">
 <meta property="og:description" content="间距只用 4 到 128 的十个刻度；内容宽 1280，12 列网格，列距 16px。">
 <meta property="og:url" content="https://knink-owo.github.io/INK-DesignLanguage/spec/space.html">
+<meta property="og:image" content="https://knink-owo.github.io/INK-DesignLanguage/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>
@@ -50,63 +52,63 @@
       <div class="section-head">
         <span class="mono-label section-head__index">01 / 间距</span>
         <h2 class="section-head__title">十个刻度，4 到 128</h2>
-        <p class="section-head__lede">页面只从这十个数里取间距。跨级取数，不插新值。</p>
+        <p class="section-head__lede">间距只取这十个数，跨级取数，不插新值。</p>
       </div>
 
       <div class="scale-list">
         <div class="scale-row">
-          <span class="scale-row__name">space-1</span>
+          <span class="scale-row__name">1</span>
           <span class="scale-row__value">4px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-1)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-2</span>
+          <span class="scale-row__name">2</span>
           <span class="scale-row__value">8px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-2)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-3</span>
+          <span class="scale-row__name">3</span>
           <span class="scale-row__value">12px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-3)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-4</span>
+          <span class="scale-row__name">4</span>
           <span class="scale-row__value">16px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-4)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-5</span>
+          <span class="scale-row__name">5</span>
           <span class="scale-row__value">24px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-5)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-6</span>
+          <span class="scale-row__name">6</span>
           <span class="scale-row__value">32px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-6)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-7</span>
+          <span class="scale-row__name">7</span>
           <span class="scale-row__value">48px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-7)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-8</span>
+          <span class="scale-row__name">8</span>
           <span class="scale-row__value">64px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-8)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-9</span>
+          <span class="scale-row__name">9</span>
           <span class="scale-row__value">96px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-9)"></div>
         </div>
         <div class="scale-row">
-          <span class="scale-row__name">space-10</span>
+          <span class="scale-row__name">10</span>
           <span class="scale-row__value">128px</span>
           <div class="scale-row__bar" style="width: var(--ink-space-10)"></div>
         </div>
       </div>
 
-      <p class="note">4px 管图标与字之间，16px 是默认间距，64px 以上管区块和章节。</p>
+      <p class="note">行号 1 到 10 依次对应 tokens.css 里的 space 变量。4px 管图标与字之间，16px 是默认间距，64px 以上管区块和章节。</p>
     </div>
   </section>
 
@@ -115,7 +117,7 @@
       <div class="section-head">
         <span class="mono-label section-head__index">02 / 网格</span>
         <h2 class="section-head__title">12 列，内容宽 1280</h2>
-        <p class="section-head__lede">内容区最宽 1280px，左右留白在 20 到 56px 之间伸缩。列距恒为 16px。</p>
+        <p class="section-head__lede">内容区最宽 1280px，留白 20 到 56px。</p>
       </div>
 
       <div class="grid-demo" role="img" aria-label="12 列网格示意：第一行 12 个单列，第二行三块各跨 4 列">
@@ -160,8 +162,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono-label section-head__index">03 / 断点</span>
-        <h2 class="section-head__title">两个断点，按拥挤程度切</h2>
-        <p class="section-head__lede">980px 与 680px 各切一次。只调布局与栏数，不动字号和间距刻度。</p>
+        <h2 class="section-head__title">两个断点，按宽度切</h2>
+        <p class="section-head__lede">980px 与 680px 各切一次，只调布局与栏数，字号和间距刻度不动。</p>
       </div>
 
       <div class="table-wrap">
@@ -195,8 +197,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono-label section-head__index">04 / 变量</span>
-        <h2 class="section-head__title">间距、网格、触控只改这里</h2>
-        <p class="section-head__lede">下面这段是间距与几何的全部取值。页面里不写裸 px。</p>
+        <h2 class="section-head__title">改间距、网格与触控</h2>
+        <p class="section-head__lede">下面这段放间距与几何取值，页面不写裸 px。</p>
       </div>
 
       <div class="code-block">

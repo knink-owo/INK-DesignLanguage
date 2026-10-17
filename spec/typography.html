@@ -14,6 +14,8 @@
 <meta property="og:title" content="INK 文字规范：七级字号">
 <meta property="og:description" content="系统字体、七级字号。正文 16px 起，行高 1.75，一行 30 到 45 个汉字。">
 <meta property="og:url" content="https://knink-owo.github.io/INK-DesignLanguage/spec/typography.html">
+<meta property="og:image" content="https://knink-owo.github.io/INK-DesignLanguage/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>
@@ -50,7 +52,7 @@
       <div class="section-head">
         <span class="mono-label section-head__index">01 / 字体</span>
         <h2 class="section-head__title">三个角色，两套字体栈</h2>
-        <p class="section-head__lede">展示、正文、等宽各占一行。展示和正文共用一套系统无衬线，靠 600 与 400 两档字重分开。</p>
+        <p class="section-head__lede">展示、正文、等宽各占一行；展示和正文共用一套系统无衬线，靠字重分开。</p>
       </div>
 
       <div class="type-list">
@@ -68,7 +70,7 @@
         </div>
       </div>
 
-      <p class="note">全部用系统字体，不下载字体文件。macOS 落苹方，Windows 落微软雅黑。</p>
+      <p class="note">全部系统字体，不下载字体文件。macOS 落苹方，Windows 落微软雅黑。</p>
     </div>
   </section>
 
@@ -76,8 +78,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono-label section-head__index">02 / 字号</span>
-        <h2 class="section-head__title">七级字号，一屏最多用三级</h2>
-        <p class="section-head__lede">从展示到小字只有七级。级差足够大，一屏里最多出现三级。</p>
+        <h2 class="section-head__title">七级字号，一屏三级</h2>
+        <p class="section-head__lede">从展示到小字只有七级，相邻两级的字号比在 1.1 到 2 之间。</p>
       </div>
 
       <div class="type-list">
@@ -119,18 +121,18 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono-label section-head__index">03 / 排中文</span>
-        <h2 class="section-head__title">中英之间留空格，标点用全角</h2>
-        <p class="section-head__lede">中文句子里，西文前后空一格；中文标点占全角，数字用半角。正文列宽控在一行 30 到 45 个汉字。</p>
+        <h2 class="section-head__title">中英之间留空格</h2>
+        <p class="section-head__lede">西文前后空一格，中文标点占全角；正文列宽控在一行 30 到 45 个汉字。</p>
       </div>
 
       <div class="compare">
         <div class="compare__col">
-          <div class="compare__title"><span class="mark mark--yes">推荐</span>中英之间留空格</div>
+          <div class="compare__title"><span class="mark mark--yes">推荐</span>汉字与西文之间空一格</div>
           <p class="compare__example">用 tokens.css 管理 8 个色场。</p>
           <p class="compare__note">空格加在汉字与西文字符之间，行首和行尾不加。中文标点用全角。</p>
         </div>
         <div class="compare__col">
-          <div class="compare__title"><span class="mark mark--no">避免</span>中英文挤在一起</div>
+          <div class="compare__title"><span class="mark mark--no">避免</span>汉字与西文挤在一起</div>
           <p class="compare__example">用tokens.css管理8个色场,一行80字。</p>
           <p class="compare__note">空格缺失，半角逗号混进中文句子。读到数字和西文时要停下来断句。</p>
         </div>
@@ -157,8 +159,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono-label section-head__index">04 / 变量</span>
-        <h2 class="section-head__title">字号、行高、字距只改这里</h2>
-        <p class="section-head__lede">页面里不写字号和行高。下面这段从 tokens.css 复制，改值先改源文件。</p>
+        <h2 class="section-head__title">改字号、行高、字距</h2>
+        <p class="section-head__lede">页面里不写字号和行高，下面这段从 tokens.css 直接复制。</p>
       </div>
 
       <div class="code-block">

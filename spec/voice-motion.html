@@ -14,6 +14,8 @@
 <meta property="og:title" content="INK 文案与动效规范：把句子写短">
 <meta property="og:description" content="文案先给动词和数字；动效解释位置变化。悬停 200ms，展开 380ms，收起 240ms。">
 <meta property="og:url" content="https://knink-owo.github.io/INK-DesignLanguage/spec/voice-motion.html">
+<meta property="og:image" content="https://knink-owo.github.io/INK-DesignLanguage/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>
@@ -227,7 +229,6 @@
   --ink-stagger: 45ms;
 
   /* 位移与按下 */
-  --ink-lift: -3px;
   --ink-shift: 6px;
   --ink-press-scale: 0.975;
 }
@@ -241,7 +242,6 @@
     --ink-duration-collapse: 0ms;
     --ink-duration-page: 0ms;
     --ink-stagger: 0ms;
-    --ink-lift: 0px;
     --ink-shift: 0px;
     --ink-press-scale: 1;
   }
@@ -311,7 +311,7 @@
         <span class="mono-label">空间连续性</span>
         <h2 class="sheet__title" id="example-sheet-title">一块面板</h2>
       </div>
-      <button class="sheet__close" type="button" data-sheet-close aria-label="关闭">×</button>
+      <button class="sheet__close" type="button" data-sheet-close>关闭</button>
     </div>
     <div class="sheet__body">
       <p class="lede">从按钮的矩形中心展开，关闭时缩回按钮。三条退出路径都回到同一个位置。</p>

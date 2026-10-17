@@ -103,7 +103,6 @@
   --ink-shadow-modal: 0 32px 80px rgba(27, 36, 31, 0.24),
     0 2px 8px rgba(27, 36, 31, 0.08);
   --ink-z-header: 20;
-  --ink-z-panel: 40;
   --ink-z-modal: 60;
 
   /* --- 动效 ----------------------------------------------------------- */
@@ -116,7 +115,6 @@
   --ink-duration-collapse: 240ms;
   --ink-duration-page: 420ms;
   --ink-stagger: 45ms;
-  --ink-lift: -3px;
   --ink-shift: 6px;
   --ink-press-scale: 0.975;
 }
@@ -130,7 +128,6 @@
     --ink-duration-collapse: 0ms;
     --ink-duration-page: 0ms;
     --ink-stagger: 0ms;
-    --ink-lift: 0px;
     --ink-shift: 0px;
     --ink-press-scale: 1;
   }
