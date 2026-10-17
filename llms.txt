@@ -15,11 +15,12 @@ INK 是一套个人设计语言。本仓库同时是规范文档与展示站，�
 
 ## 章节
 
-- 色彩：spec/color.html · 八个色场 + 四个中性色 + 对比度实测
+- 色彩：spec/color.html · 八个色场 + 四个中性色 + 用色规则
 - 文字：spec/typography.html · 系统字体栈 + 字号阶梯 + 中英混排
 - 空间：spec/space.html · 十级间距 + 网格 + 断点
 - 组件：spec/components.html · 直角按钮 / 输入 / 面板 / 标签
 - 语气与动效：spec/voice-motion.html · 文案语气 + 时长缓动 + 空间连续性
+- 预留（未发布）：第六章「应用」· 文章页 / 项目页示例，等站内出现真实内容页再写
 
 ## 给模型使用
 

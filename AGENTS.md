@@ -16,6 +16,7 @@
 5. **中文文案**：短句、动词具体、不用营销话术（见 `DESIGN.md` §8/§10）。不写「关于我」、博客、案例区。
 6. **可访问性不许退步**：跳转链接、`:focus-visible` 焦点环、`aria-current`、44px 触控目标、`prefers-reduced-motion` 降级。
 7. **每页唯一 h1**；标题不跳级；图片必须有 `alt` 或标注为装饰。
+8. **顶栏只有品牌 + 五章导航**（导航右对齐），不加入口按钮；首页色带是静态展示，不做跳转、不加 hover 动效。
 
 ## 2. 文件地图
 
@@ -65,7 +66,6 @@ llms.txt                   给 LLM 的入口索引
         <a href="components.html">组件</a>
         <a href="voice-motion.html">语气与动效</a>
       </nav>
-      <a class="nav-agent" href="../AGENTS.md">给 Agent</a>
     </div>
   </header>
   <main id="main">
@@ -73,7 +73,7 @@ llms.txt                   给 LLM 的入口索引
       <div class="wrap">
         <div class="chapter-hero__meta">
           <a class="kicker" href="../index.html">INK / 规范</a>
-          <span class="chip">CH 06 · 标签</span>
+          <span class="chip">CH 06 · 应用</span>
         </div>
         <h1 class="h1 chapter-hero__title">标题。<br>第二行。</h1>
         <p class="lede chapter-hero__lede">一段 40–80 字的导语。</p>

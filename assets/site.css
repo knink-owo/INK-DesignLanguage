@@ -283,24 +283,6 @@ a:hover {
   box-shadow: inset 0 -2px 0 var(--ink-ink);
 }
 
-.nav-agent {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--ink-target-min);
-  padding-inline: var(--ink-space-3);
-  border: var(--ink-border-strong);
-  font-size: var(--ink-size-small);
-  color: var(--ink-text-primary);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.nav-agent:hover {
-  background: var(--ink-ink);
-  color: var(--ink-text-on-ink);
-  text-decoration: none;
-}
-
 /* --- 5. Buttons ---------------------------------------------------------- */
 .btn {
   display: inline-flex;
@@ -395,8 +377,22 @@ a:hover {
 
 /* --- 7. Homepage: hero --------------------------------------------------- */
 .hero {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--ink-header-h));
+  min-height: calc(100svh - var(--ink-header-h));
   padding-top: clamp(56px, 9vw, 120px);
-  padding-bottom: clamp(40px, 6vw, 72px);
+  padding-bottom: 0;
+}
+
+/* The palette sits on the first-screen baseline: title above, colors below. */
+.hero__band {
+  margin-top: auto;
+  padding-top: clamp(40px, 6vw, 72px);
+}
+
+.hero + .section {
+  border-top: 0;
 }
 
 .hero__title {
@@ -406,13 +402,6 @@ a:hover {
 
 .hero__lede {
   max-width: 36em;
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--ink-space-3);
-  margin-top: var(--ink-space-6);
 }
 
 .hero__meta {
@@ -436,7 +425,7 @@ a:hover {
   vertical-align: 1px;
 }
 
-/* Color band: the palette is the first piece of content. */
+/* Color band: the palette is the first piece of content, not a menu. */
 .band {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -452,15 +441,6 @@ a:hover {
   min-height: clamp(112px, 14vw, 168px);
   padding: var(--ink-space-4);
   color: var(--ink-text-on-color);
-  text-decoration: none;
-  transition: transform var(--ink-duration-expand) var(--ink-ease-snap),
-    box-shadow var(--ink-duration-expand) var(--ink-ease-snap);
-}
-
-.band__item:hover {
-  transform: translateY(var(--ink-hover-lift));
-  box-shadow: var(--ink-shadow-2);
-  z-index: 1;
 }
 
 .band__name {
@@ -1341,10 +1321,6 @@ a:hover {
 
   .site-header__inner {
     gap: var(--ink-space-4);
-  }
-
-  .nav-agent {
-    display: none;
   }
 
   .band {

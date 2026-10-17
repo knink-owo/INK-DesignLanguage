@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>色彩 · INK Design Language</title>
-  <meta name="description" content="INK 色彩规范：八个色场、四个中性色、对比度实测与色场使用规则。">
+  <meta name="description" content="INK 色彩规范：八个色场、四个中性色与色场使用规则。">
   <meta name="theme-color" content="#FAF9F5">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../tokens.css">
@@ -23,7 +23,6 @@
         <a href="components.html">组件</a>
         <a href="voice-motion.html">语气与动效</a>
       </nav>
-      <a class="nav-agent" href="../AGENTS.md">给 Agent</a>
     </div>
   </header>
 
@@ -193,90 +192,7 @@
         <section class="spec-section">
           <div class="spec-head">
             <div>
-              <span class="spec-head__index">03 / CONTRAST</span>
-              <h2 class="h2">对比度实测</h2>
-            </div>
-            <p class="lede">以下数值按 WCAG 2.1 相对亮度公式计算，不是目测。正文 4.5:1 是底线，低于这个数的颜色只能做装饰。</p>
-          </div>
-
-          <div class="table-wrap">
-            <table class="spec-table">
-              <caption>INK 关键组合 · 计算于 2026-10-17</caption>
-              <thead>
-                <tr>
-                  <th scope="col">组合</th>
-                  <th scope="col">前景</th>
-                  <th scope="col">背景</th>
-                  <th scope="col">对比度</th>
-                  <th scope="col">判定</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>正文</td>
-                  <td><code>#26302C</code></td>
-                  <td><code>#FAF9F5</code></td>
-                  <td class="mono">12.9 : 1</td>
-                  <td><span class="chip">AAA</span></td>
-                </tr>
-                <tr>
-                  <td>正文</td>
-                  <td><code>#26302C</code></td>
-                  <td><code>#FFFFFF</code></td>
-                  <td class="mono">13.6 : 1</td>
-                  <td><span class="chip">AAA</span></td>
-                </tr>
-                <tr>
-                  <td>次要文字</td>
-                  <td><code>#5E6A64</code></td>
-                  <td><code>#FAF9F5</code></td>
-                  <td class="mono">5.4 : 1</td>
-                  <td><span class="chip">AA</span></td>
-                </tr>
-                <tr>
-                  <td>次要文字</td>
-                  <td><code>#5E6A64</code></td>
-                  <td><code>#FFFFFF</code></td>
-                  <td class="mono">5.6 : 1</td>
-                  <td><span class="chip">AA</span></td>
-                </tr>
-                <tr>
-                  <td>弱化文字</td>
-                  <td><code>#8B948E</code></td>
-                  <td><code>#FAF9F5</code></td>
-                  <td class="mono">3.0 : 1</td>
-                  <td>仅装饰，不承载信息</td>
-                </tr>
-                <tr>
-                  <td>色场文字</td>
-                  <td><code>#16211D</code></td>
-                  <td>八个色场</td>
-                  <td class="mono">6.1 : 1 – 8.1 : 1</td>
-                  <td><span class="chip">AA+</span></td>
-                </tr>
-                <tr>
-                  <td>白字</td>
-                  <td><code>#FFFFFF</code></td>
-                  <td><code>#26302C</code></td>
-                  <td class="mono">13.6 : 1</td>
-                  <td><span class="chip">AAA</span></td>
-                </tr>
-                <tr>
-                  <td>白字</td>
-                  <td><code>#FFFFFF</code></td>
-                  <td><code>#6EA8A3</code></td>
-                  <td class="mono">2.7 : 1</td>
-                  <td>禁止使用</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">04 / RULES</span>
+              <span class="spec-head__index">03 / RULES</span>
               <h2 class="h2">怎么用，怎么不用</h2>
             </div>
             <p class="lede">颜色只回答「这段属于什么」，不回答「这有多重要」。重要性交给留白、字号和位置——这些是文字层面的决定，颜色不该越权。</p>
@@ -318,7 +234,7 @@
         <section class="spec-section">
           <div class="spec-head">
             <div>
-              <span class="spec-head__index">05 / TOKENS</span>
+              <span class="spec-head__index">04 / TOKENS</span>
               <h2 class="h2">变量</h2>
             </div>
             <p class="lede">全部颜色只从 <code class="mono">tokens.css</code> 取。页面里不写裸色值；确需一次性色块时才允许内联变量。</p>
