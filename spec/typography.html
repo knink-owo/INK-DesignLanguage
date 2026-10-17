@@ -1,270 +1,258 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>文字 · INK Design Language</title>
-  <meta name="description" content="INK 文字规范：系统字体栈、字号阶梯、中英混排、标点与可读性红线。">
-  <meta name="theme-color" content="#FAF9F5">
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../tokens.css">
-  <link rel="stylesheet" href="../assets/site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>文字 · INK 设计语言</title>
+<meta name="description" content="INK 文字规范：系统字体、七级字号、中文行距与中英混排。">
+<meta name="theme-color" content="#FAF9F5">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="canonical" href="https://knink-owo.github.io/INK-DesignLanguage/spec/typography.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="INK 文字规范：七级字号">
+<meta property="og:description" content="系统字体、七级字号。正文 16px 起，行高 1.75，一行 30 到 45 个汉字。">
+<meta property="og:url" content="https://knink-owo.github.io/INK-DesignLanguage/spec/typography.html">
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到内容</a>
+<a class="skip-link" href="#main">跳到正文</a>
 
-  <header class="site-header">
+<header class="site-header">
+  <div class="wrap">
     <div class="site-header__inner">
-      <a class="brand" href="../index.html">INK <span class="brand__sub">/ Design Language</span></a>
-      <nav class="site-nav" aria-label="规范正文">
-        <a href="color.html">色彩</a>
-        <a href="typography.html" aria-current="page">文字</a>
-        <a href="space.html">空间</a>
-        <a href="components.html">组件</a>
-        <a href="voice-motion.html">语气与动效</a>
+      <a class="brand" href="../index.html">INK<span class="brand__sub">设计语言</span></a>
+      <nav class="site-nav" aria-label="章节">
+        <a class="site-nav__link" href="color.html">色彩</a>
+        <a class="site-nav__link" href="typography.html" aria-current="page">文字</a>
+        <a class="site-nav__link" href="space.html">空间</a>
+        <a class="site-nav__link" href="components.html">组件</a>
+        <a class="site-nav__link" href="voice-motion.html">文案与动效</a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="main">
-    <header class="chapter-hero">
-      <div class="wrap">
-        <div class="chapter-hero__meta">
-          <a class="kicker" href="../index.html">INK / 规范</a>
-          <span class="chip">CH 02 · TYPOGRAPHY</span>
+<main id="main">
+  <section class="chapter-hero tone-lotus">
+    <div class="wrap">
+      <div class="chapter-hero__inner">
+        <span class="mono-label chapter-hero__index">02 / 文字</span>
+        <h1 class="chapter-hero__title">先把一句排好</h1>
+        <p class="chapter-hero__lede">系统字体、七级字号、中文行距。正文 16px 起，行高 1.75，每行 30 到 45 个汉字。</p>
+        <p class="chapter-hero__meta">3 个字体角色 / 7 级字号 / 正文 16px 起</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">01 / 字体</span>
+        <h2 class="section-head__title">三个角色，两套字体栈</h2>
+        <p class="section-head__lede">展示、正文、等宽各占一行。展示和正文共用一套系统无衬线，靠 600 与 400 两档字重分开。</p>
+      </div>
+
+      <div class="type-list">
+        <div class="type-row">
+          <div class="type-row__name">展示<span class="type-row__spec">--ink-font · 600</span></div>
+          <div class="type-row__sample sample--display">八色场 Aa</div>
         </div>
-        <h1 class="h1 chapter-hero__title">文字。<br>让句子先站稳，再谈风格。</h1>
-        <p class="lede chapter-hero__lede">INK 不用付费字体，也不做字体特效。系统字体、轻展示字重、克制的字号阶梯——文字的好看，来自它被读得下去。</p>
+        <div class="type-row">
+          <div class="type-row__name">正文<span class="type-row__spec">--ink-font · 400</span></div>
+          <div class="type-row__sample sample--body">留白按刻度走，字号按阶梯落。</div>
+        </div>
+        <div class="type-row">
+          <div class="type-row__name">等宽<span class="type-row__spec">--ink-font-mono · 400</span></div>
+          <div class="type-row__sample sample--label">tokens.css</div>
+        </div>
       </div>
-    </header>
 
-    <div class="chapter-body">
-      <div class="wrap">
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">01 / FONTS</span>
-              <h2 class="h2">三个角色，一套系统字体</h2>
-            </div>
-            <p class="lede">正文、展示、等宽各有一组系统字体栈。零网络请求、零字体加载抖动；在 Mac、Windows、Linux 上都落在最接近的产品字上。</p>
-          </div>
-
-          <div class="grid grid--3">
-            <div class="panel">
-              <span class="panel__label">BODY / 正文</span>
-              <p class="sample-body" style="margin-bottom: var(--ink-space-4);">留白是内容，不是没填满。</p>
-              <p class="dim mono">--ink-font</p>
-            </div>
-            <div class="panel">
-              <span class="panel__label">DISPLAY / 展示</span>
-              <p class="sample-h2" style="margin-bottom: var(--ink-space-4); font-weight: 300;">先感受，再解释。</p>
-              <p class="dim mono">--ink-font-display</p>
-            </div>
-            <div class="panel">
-              <span class="panel__label">MONO / 等宽</span>
-              <p class="mono" style="margin-bottom: var(--ink-space-4); font-size: 0.875rem;">--ink-size-body: 1rem;</p>
-              <p class="dim mono">--ink-font-mono</p>
-            </div>
-          </div>
-
-          <div class="code-block" style="margin-top: var(--ink-space-5);">
-            <div class="code-block__head">
-              <span>tokens.css · 字体栈</span>
-              <button class="copy-btn" type="button" data-copy-target="#font-tokens">复制</button>
-            </div>
-            <pre id="font-tokens"><code>--ink-font: "Segoe UI", "PingFang SC", "HarmonyOS Sans SC",
-  "Microsoft YaHei", system-ui, sans-serif;
---ink-font-display: "Segoe UI Light", "Segoe UI", "PingFang SC",
-  "HarmonyOS Sans SC", "Microsoft YaHei", system-ui, sans-serif;
---ink-font-mono: "Cascadia Code", "SFMono-Regular", Consolas,
-  "Liberation Mono", monospace;</code></pre>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">02 / SCALE</span>
-              <h2 class="h2">字号阶梯</h2>
-            </div>
-            <p class="lede">从展示到注释只有六级。级差足够大，所以一屏里最多出现三种；级差由流式函数控制，不靠媒体查询逐档改。</p>
-          </div>
-
-          <div class="type-list">
-            <div class="type-row">
-              <div class="type-row__sample"><span class="sample-display">先感受，再解释。</span></div>
-              <div class="type-row__meta">DISPLAY<br>clamp(3rem, 7.2vw, 5.75rem)<br>行高 1.05 · 字重 300</div>
-            </div>
-            <div class="type-row">
-              <div class="type-row__sample"><span class="sample-h1">八个色场</span></div>
-              <div class="type-row__meta">H1<br>clamp(2.25rem, 4.2vw, 3.5rem)<br>行高 1.2 · 字重 300</div>
-            </div>
-            <div class="type-row">
-              <div class="type-row__sample"><span class="sample-h2">一次只让一个说话</span></div>
-              <div class="type-row__meta">H2<br>clamp(1.5rem, 2.6vw, 2.25rem)<br>行高 1.2 · 字重 300</div>
-            </div>
-            <div class="type-row">
-              <div class="type-row__sample"><span class="sample-body">正文是这套语言的主声部：一行三十到四十五个汉字，行高 1.75，字号从 16px 起。句子短，动词具体，不堆形容词。</span></div>
-              <div class="type-row__meta">BODY<br>1rem / 行高 1.75<br>字重 400 · 阅读列约 34em</div>
-            </div>
-            <div class="type-row">
-              <div class="type-row__sample"><span class="sample-small">辅助文字：图注、元信息、按钮标签。它退后半步，不承担主要阅读。</span></div>
-              <div class="type-row__meta">SMALL<br>0.875rem<br>字重 400 · 次要色</div>
-            </div>
-            <div class="type-row">
-              <div class="type-row__sample"><span class="sample-kicker">INK / KICKER</span></div>
-              <div class="type-row__meta">KICKER<br>0.6875rem · 字距 2.4px<br>字重 600 · 全大写</div>
-            </div>
-          </div>
-
-          <div class="table-wrap" style="margin-top: var(--ink-space-6);">
-            <table class="spec-table">
-              <caption>字号变量</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Token</th>
-                  <th scope="col">值</th>
-                  <th scope="col">行高</th>
-                  <th scope="col">用途</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td><code>--ink-size-display</code></td><td class="mono">clamp(3rem, 7.2vw, 5.75rem)</td><td class="mono">1.05</td><td>首页主张、章节大标题</td></tr>
-                <tr><td><code>--ink-size-h1</code></td><td class="mono">clamp(2.25rem, 4.2vw, 3.5rem)</td><td class="mono">1.2</td><td>章节标题</td></tr>
-                <tr><td><code>--ink-size-h2</code></td><td class="mono">clamp(1.5rem, 2.6vw, 2.25rem)</td><td class="mono">1.2</td><td>小节标题</td></tr>
-                <tr><td><code>--ink-size-h3</code></td><td class="mono">clamp(1.125rem, 1.6vw, 1.375rem)</td><td class="mono">1.3</td><td>条目标题</td></tr>
-                <tr><td><code>--ink-size-body</code></td><td class="mono">1rem</td><td class="mono">1.75</td><td>正文</td></tr>
-                <tr><td><code>--ink-size-small</code></td><td class="mono">0.875rem</td><td class="mono">1.6</td><td>辅助文字、按钮</td></tr>
-                <tr><td><code>--ink-size-kicker</code></td><td class="mono">0.6875rem</td><td class="mono">1.4</td><td>栏目标签</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">03 / MIXED TYPE</span>
-              <h2 class="h2">中英混排与标点</h2>
-            </div>
-            <p class="lede">中文为主、西文为客。客人进来要留座：中英文之间空半个字符，标点各用各的体系。</p>
-          </div>
-
-          <div class="grid grid--2">
-            <div class="panel">
-              <span class="panel__label">SPACING / 空格</span>
-              <p class="dim" style="margin-bottom: var(--ink-space-3);">中文与英文、数字之间空一个半角空格。</p>
-              <p style="margin-bottom: var(--ink-space-2);"><span aria-hidden="true">✓</span> 在 <strong>INK</strong> 里，留白是内容。</p>
-              <p class="dim"><span aria-hidden="true">✕</span> 在INK里，留白是内容。</p>
-            </div>
-            <div class="panel">
-              <span class="panel__label">PUNCTUATION / 标点</span>
-              <p class="dim" style="margin-bottom: var(--ink-space-3);">中文句子用全角标点；数字和英文用半角。破折号两个全角，省略号六个点。</p>
-              <p style="margin-bottom: var(--ink-space-2);"><span aria-hidden="true">✓</span> 先感受——再解释……就这样。</p>
-              <p class="dim"><span aria-hidden="true">✕</span> 先感受--再解释...就这样.</p>
-            </div>
-          </div>
-
-          <div class="callout" style="margin-top: var(--ink-space-5);">
-            <strong>标题断行按语义。</strong>用 <code class="mono">&lt;br&gt;</code> 或受控宽度断开完整意思，不让浏览器在词中间硬折。中文标题尤其不要出现孤字成行。
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">04 / READABILITY</span>
-              <h2 class="h2">可读性红线</h2>
-            </div>
-            <p class="lede">风格可以让位，可读性不让。以下几条是尺寸与排版的硬约束，写进代码，也写进 review。</p>
-          </div>
-
-          <div class="do-dont">
-            <div class="do-dont__panel do-dont__panel--do">
-              <p class="do-dont__head"><span aria-hidden="true">✓</span> DO / 这样做</p>
-              <div class="do-dont__body">
-                <p>正文 16px 起，中文行高不低于 1.75。</p>
-                <p>阅读列控制在 30–45 个汉字，约 34em。</p>
-                <p>展示字重 300 只用在 32px 以上的标题。</p>
-                <p>用字号、留白区分层级，不用颜色。</p>
-              </div>
-            </div>
-            <div class="do-dont__panel do-dont__panel--dont">
-              <p class="do-dont__head"><span aria-hidden="true">✕</span> DON'T / 不要这样</p>
-              <div class="do-dont__body">
-                <p>不要一屏混用三种以上字号。</p>
-                <p>不要给中文加伪斜体或全大写变形。</p>
-                <p>不要用渐变、描边、阴影处理文字。</p>
-                <p>不要把正文放在色场上，除非对比度经过计算。</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">05 / TOKENS</span>
-              <h2 class="h2">变量</h2>
-            </div>
-            <p class="lede">字号、行高、字重、字距全部来自变量。页面里不出现裸 <code class="mono">px</code> 字号。</p>
-          </div>
-
-          <div class="code-block">
-            <div class="code-block__head">
-              <span>tokens.css · 字号与行高</span>
-              <button class="copy-btn" type="button" data-copy-target="#type-tokens">复制</button>
-            </div>
-            <pre id="type-tokens"><code>--ink-size-display: clamp(3rem, 7.2vw, 5.75rem);
---ink-size-h1: clamp(2.25rem, 4.2vw, 3.5rem);
---ink-size-h2: clamp(1.5rem, 2.6vw, 2.25rem);
---ink-size-h3: clamp(1.125rem, 1.6vw, 1.375rem);
---ink-size-body: 1rem;
---ink-size-small: 0.875rem;
---ink-size-kicker: 0.6875rem;
-
---ink-leading-display: 1.05;
---ink-leading-heading: 1.2;
---ink-leading-body: 1.75;
---ink-tracking-kicker: 2.4px;
---ink-tracking-display: -0.02em;
-
---ink-weight-display: 300;
---ink-weight-body: 400;
---ink-weight-strong: 600;</code></pre>
-          </div>
-        </section>
-
-        <nav class="pager" aria-label="章节目录">
-          <a class="pager__link" href="color.html">
-            <span class="pager__dir">← 上一章</span>
-            <span>色彩 · 八个色场</span>
-          </a>
-          <a class="pager__link pager__link--next" href="space.html">
-            <span class="pager__dir">下一章 →</span>
-            <span>空间 · 留白是内容</span>
-          </a>
-        </nav>
-      </div>
+      <p class="note">全部用系统字体，不下载字体文件。macOS 落苹方，Windows 落微软雅黑。</p>
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">02 / 字号</span>
+        <h2 class="section-head__title">七级字号，一屏最多用三级</h2>
+        <p class="section-head__lede">从展示到小字只有七级。级差足够大，一屏里最多出现三级。</p>
+      </div>
+
+      <div class="type-list">
+        <div class="type-row">
+          <div class="type-row__name">展示<span class="type-row__spec">--ink-size-display · 600</span></div>
+          <div class="type-row__sample sample--display">八个色场</div>
+        </div>
+        <div class="type-row">
+          <div class="type-row__name">一级标题<span class="type-row__spec">--ink-size-h1 · 600</span></div>
+          <div class="type-row__sample sample--h1">八个色场</div>
+        </div>
+        <div class="type-row">
+          <div class="type-row__name">二级标题<span class="type-row__spec">--ink-size-h2 · 600</span></div>
+          <div class="type-row__sample sample--h2">八个色场</div>
+        </div>
+        <div class="type-row">
+          <div class="type-row__name">三级标题<span class="type-row__spec">--ink-size-h3 · 600</span></div>
+          <div class="type-row__sample sample--h3">八个色场</div>
+        </div>
+        <div class="type-row">
+          <div class="type-row__name">导语<span class="type-row__spec">--ink-size-lead · 400</span></div>
+          <div class="type-row__sample sample--lead">八个色场</div>
+        </div>
+        <div class="type-row">
+          <div class="type-row__name">正文<span class="type-row__spec">--ink-size-body · 400</span></div>
+          <div class="type-row__sample sample--body">八个色场</div>
+        </div>
+        <div class="type-row">
+          <div class="type-row__name">小字<span class="type-row__spec">--ink-size-small · 400</span></div>
+          <div class="type-row__sample sample--small">八个色场</div>
+        </div>
+      </div>
+
+      <p class="note">字号用 clamp 随视口缩放，不按断点逐档改。小字最小 14px。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">03 / 排中文</span>
+        <h2 class="section-head__title">中英之间留空格，标点用全角</h2>
+        <p class="section-head__lede">中文句子里，西文前后空一格；中文标点占全角，数字用半角。正文列宽控在一行 30 到 45 个汉字。</p>
+      </div>
+
+      <div class="compare">
+        <div class="compare__col">
+          <div class="compare__title"><span class="mark mark--yes">推荐</span>中英之间留空格</div>
+          <p class="compare__example">用 tokens.css 管理 8 个色场。</p>
+          <p class="compare__note">空格加在汉字与西文字符之间，行首和行尾不加。中文标点用全角。</p>
+        </div>
+        <div class="compare__col">
+          <div class="compare__title"><span class="mark mark--no">避免</span>中英文挤在一起</div>
+          <p class="compare__example">用tokens.css管理8个色场,一行80字。</p>
+          <p class="compare__note">空格缺失，半角逗号混进中文句子。读到数字和西文时要停下来断句。</p>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="compare__col">
+          <div class="compare__title"><span class="mark mark--yes">推荐</span>一行 30–45 个汉字</div>
+          <p class="compare__example">正文按 34em 折行，一行落 30 到 45 个汉字。</p>
+          <p class="compare__note">列宽与行高一起定：行高 1.75，换行时眼睛接得住下一行开头。</p>
+        </div>
+        <div class="compare__col">
+          <div class="compare__title"><span class="mark mark--no">避免</span>一行 80 字</div>
+          <p class="compare__example">正文拉到整屏宽，一行 80 字。</p>
+          <p class="compare__note">行尾离行首太远，换行容易串行。正文收进 34em。</p>
+        </div>
+      </div>
+
+      <p class="note">正文列宽 34em，行高 1.75。两项都在 tokens.css 里定值。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">04 / 变量</span>
+        <h2 class="section-head__title">字号、行高、字距只改这里</h2>
+        <p class="section-head__lede">页面里不写字号和行高。下面这段从 tokens.css 复制，改值先改源文件。</p>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__head">
+          <span class="mono-label">tokens.css / 字体与字号</span>
+          <button class="copy-btn" type="button" data-copy-target="#type-tokens"><span data-copy-label>复制</span></button>
+        </div>
+<pre class="code-block__body" id="type-tokens"><code>  /* 字体 */
+  --ink-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --ink-font-mono: "Cascadia Code", "SFMono-Regular", Consolas,
+    "Liberation Mono", monospace;
+
+  /* 字重与字号 */
+  --ink-weight-body: 400;
+  --ink-weight-display: 600;
+  --ink-weight-strong: 600;
+
+  --ink-size-display: clamp(3.25rem, 8vw, 7.5rem);    /* 52 → 120px */
+  --ink-size-h1: clamp(2.75rem, 6vw, 5.5rem);         /* 44 → 88px */
+  --ink-size-h2: clamp(2rem, 3.2vw, 2.75rem);         /* 32 → 44px */
+  --ink-size-h3: clamp(1.375rem, 1.8vw, 1.75rem);     /* 22 → 28px */
+  --ink-size-lead: clamp(1.125rem, 1.4vw, 1.375rem);  /* 18 → 22px */
+  --ink-size-body: 1rem;
+  --ink-size-small: 0.875rem;
+  --ink-size-mono: 0.75rem;
+  --ink-size-label: 0.6875rem;
+
+  --ink-leading-display: 1;
+  --ink-leading-heading: 1.14;
+  --ink-leading-body: 1.75;
+  --ink-tracking-display: -0.035em;
+  --ink-tracking-label: 0.14em;
+  --ink-stroke-display: 2px;</code></pre>
+      </div>
+
+      <p class="note">字重只有 400 和 600 两档。标题用 600，正文用 400。</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <nav class="pager" aria-label="章节翻页">
+      <a class="pager__link" href="color.html">
+        <span class="pager__dir">上一章</span>
+        <span class="pager__title">← 色彩</span>
+      </a>
+      <a class="pager__link pager__link--next" href="space.html">
+        <span class="pager__dir">下一章</span>
+        <span class="pager__title">空间 →</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <div class="site-footer__brand">INK</div>
+        <p class="site-footer__sub">面向中文界面的设计语言。数值在 tokens.css，规则在 DESIGN.md，验收在 AGENTS.md。零依赖、零构建、零外链字体。</p>
+      </div>
+
       <div>
-        <p class="kicker" style="margin-bottom: var(--ink-space-2);">INK / DESIGN LANGUAGE</p>
-        <p>v1.0 · 个人设计语言标本，不是产品页面模板。</p>
+        <div class="site-footer__title">规范</div>
+        <a class="site-footer__link" href="../index.html">首页</a>
+        <a class="site-footer__link" href="color.html">色彩</a>
+        <a class="site-footer__link" href="typography.html">文字</a>
+        <a class="site-footer__link" href="space.html">空间</a>
+        <a class="site-footer__link" href="components.html">组件</a>
+        <a class="site-footer__link" href="voice-motion.html">文案与动效</a>
       </div>
-      <div class="site-footer__links" aria-label="规范文件与链接">
-        <a href="../index.html">首页</a>
-        <a href="../DESIGN.md">DESIGN.md</a>
-        <a href="../tokens.css">tokens.css</a>
-        <a href="../AGENTS.md">AGENTS.md</a>
-        <a href="https://github.com/knink-owo/INK-DesignLanguage">GitHub ↗</a>
+
+      <div>
+        <div class="site-footer__title">文件</div>
+        <a class="site-footer__link" href="../DESIGN.md">DESIGN.md</a>
+        <a class="site-footer__link" href="../AGENTS.md">AGENTS.md</a>
+        <a class="site-footer__link" href="../tokens.css">tokens.css</a>
+        <a class="site-footer__link" href="../tokens.json">tokens.json</a>
+        <a class="site-footer__link" href="../llms.txt">llms.txt</a>
+      </div>
+
+      <div>
+        <div class="site-footer__title">源码</div>
+        <a class="site-footer__link" href="https://github.com/knink-owo/INK-DesignLanguage">GitHub</a>
+        <a class="site-footer__link" href="../README.md">站点说明</a>
       </div>
     </div>
-  </footer>
 
-  <script src="../assets/site.js" defer></script>
+    <div class="site-footer__bottom">
+      <span class="site-footer__fine">© 2026 INK · 静态站，零依赖</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
 </body>
 </html>

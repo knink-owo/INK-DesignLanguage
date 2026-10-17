@@ -1,31 +1,43 @@
 # INK Design Language
 
-> 先感受，再解释。纸白底、墨黑字、八个色场、直角与 1px 线。
-
-INK 是一套个人设计语言。本仓库同时是规范文档与展示站，纯静态、零依赖。
+> 面向中文界面的设计语言。八个色场做分区，1px 细线、0 圆角做结构，字号和留白做层级。纯静态站，零依赖、零构建、零外链字体。当前版本 v1.1（2026-10）。
 
 ## 入口
 
-- 展示站：https://knink-owo.github.io/INK-DesignLanguage/
-- 首页：https://knink-owo.github.io/INK-DesignLanguage/index.html
-- 设计规范（人读）：https://knink-owo.github.io/INK-DesignLanguage/DESIGN.md
-- Agent 实现约束：https://knink-owo.github.io/INK-DesignLanguage/AGENTS.md
-- 设计变量：https://knink-owo.github.io/INK-DesignLanguage/tokens.css
-- 变量 JSON：https://knink-owo.github.io/INK-DesignLanguage/tokens.json
+- [首页](https://knink-owo.github.io/INK-DesignLanguage/)：首屏、五章目录、三条原则
+- [DESIGN.md](https://knink-owo.github.io/INK-DesignLanguage/DESIGN.md)：为什么这样做，规则与数值解释
+- [AGENTS.md](https://knink-owo.github.io/INK-DesignLanguage/AGENTS.md)：怎么做，页面骨架与验收清单
+- [tokens.css](https://knink-owo.github.io/INK-DesignLanguage/tokens.css)：唯一数值源
+- [tokens.json](https://knink-owo.github.io/INK-DesignLanguage/tokens.json)：机器可读副本（由 tools/sync_tokens.py 生成）
 
-## 章节
+## 五章
 
-- 色彩：spec/color.html · 八个色场 + 四个中性色 + 用色规则
-- 文字：spec/typography.html · 系统字体栈 + 字号阶梯 + 中英混排
-- 空间：spec/space.html · 十级间距 + 网格 + 断点
-- 组件：spec/components.html · 直角按钮 / 输入 / 面板 / 标签
-- 语气与动效：spec/voice-motion.html · 文案语气 + 时长缓动 + 空间连续性
-- 预留（未发布）：第六章「应用」· 文章页 / 项目页示例，等站内出现真实内容页再写
+1. 色彩 `spec/color.html`：八个色场、八组中性色、对比度下限
+2. 文字 `spec/typography.html`：系统字体、七级字号、中文排版
+3. 空间 `spec/space.html`：十级间距、12 列网格、980/680 断点
+4. 组件 `spec/components.html`：按钮、表单、链接块、标签、浮层
+5. 文案与动效 `spec/voice-motion.html`：文案写法、六档时长、空间连续性
 
-## 给模型使用
+## 给模型的规则
 
-1. 先读 DESIGN.md 的「设计定位」「不做什么」两节，确认边界。
-2. 再读 AGENTS.md 的硬约束与页面骨架，只用其中的 token 与类名。
-3. 所有颜色、字号、间距、圆角、动效必须来自 tokens.css；不新增品牌色、不改圆角（恒 0）、无渐变。
-4. 关键数字：圆角 0px；内容区 1200px；正文 1rem / 行高 1.75；触控目标 44px；色场文字 #16211D；展开动效 380ms。
-5. 明确不做：个人介绍、博客、作品案例、3D/AI 插画、评论 CMS、深色模式、多语言、滚动劫持。
+1. 只组合 `tokens.css` 里的变量和 `assets/site.css` 里的 class，不新增设计语言。
+2. 颜色写 `var(--ink-*)`，不写裸色值；间距只用 4/8/12/16/24/32/48/64/96/128。
+3. 圆角恒 0，描边恒 1px，投影只给浮层。
+4. 一屏一块色场，色场里只放 `#16211D` 深墨字；反白只放在 `#1B241F` 深墨底上。
+5. 文案用动词和数字，禁止破折号、对仗格言、「让……」句式、空泛形容词。
+6. 每页唯一 h1；跳转链接、焦点环、44px 触控、减少动效降级不许缺。
+7. 零依赖：不引入框架、CDN、外链字体或图标库。
+8. 改动后运行 `python tools/check_site.py`、`python tools/sync_tokens.py --check`、`node tools/audit.js`。
+
+## 关键数值
+
+- 内容宽 1280px，左右留白 clamp(20px, 4vw, 56px)，正文列宽 34em
+- 字号：首屏 52–120px，h1 44–88px，h2 32–44px，正文 16px，说明 14px
+- 字重两档：400 与 600
+- 圆角 0，1px 实线，触控 44px，顶栏 64px
+- 动效：悬停 200ms、按下 140ms、展开 380ms、收起 240ms、页面 420ms、依次 +45ms
+- `prefers-reduced-motion: reduce` 下所有时长与位移归零
+
+## 不做
+
+不做暗色模式、多语言、圆角、渐变、玻璃拟态、滚动劫持、视差、第三方字体与图标库、首屏第二入口按钮。

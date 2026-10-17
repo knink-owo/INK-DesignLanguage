@@ -1,208 +1,211 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>INK Design Language · 先感受，再解释</title>
-  <meta name="description" content="INK 是一套个人设计语言：用留白托住内容，用实色块表达情绪，用克制的动效解释变化。包含色彩、文字、空间、组件、语气与动效五章规范。">
-  <meta name="theme-color" content="#FAF9F5">
-  <meta property="og:title" content="INK Design Language · 先感受，再解释">
-  <meta property="og:description" content="个人设计语言标本：8 个色场、3 条原则、5 章规范，以及一份可以直接交给 Agent 的实现约束。">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="assets/site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INK · 面向中文界面的设计语言</title>
+<meta name="description" content="八个色场、1px 细线、0 圆角。INK 是一套面向中文界面的设计语言：数值在 tokens.css，规则在 DESIGN.md，验收在 AGENTS.md。零依赖、零构建。">
+<meta name="theme-color" content="#FAF9F5">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="canonical" href="https://knink-owo.github.io/INK-DesignLanguage/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="INK · 面向中文界面的设计语言">
+<meta property="og:description" content="八个色场、1px 细线、0 圆角。中文界面里能用上的字号、间距和用色规则。">
+<meta property="og:url" content="https://knink-owo.github.io/INK-DesignLanguage/">
+<meta property="og:image" content="https://knink-owo.github.io/INK-DesignLanguage/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到内容</a>
+<a class="skip-link" href="#main">跳到正文</a>
 
-  <header class="site-header">
+<header class="site-header">
+  <div class="wrap">
     <div class="site-header__inner">
-      <a class="brand" href="index.html">INK <span class="brand__sub">/ Design Language</span></a>
-      <nav class="site-nav" aria-label="规范正文">
-        <a href="spec/color.html">色彩</a>
-        <a href="spec/typography.html">文字</a>
-        <a href="spec/space.html">空间</a>
-        <a href="spec/components.html">组件</a>
-        <a href="spec/voice-motion.html">语气与动效</a>
+      <a class="brand" href="index.html">INK<span class="brand__sub">设计语言</span></a>
+      <nav class="site-nav" aria-label="章节">
+        <a class="site-nav__link" href="spec/color.html">色彩</a>
+        <a class="site-nav__link" href="spec/typography.html">文字</a>
+        <a class="site-nav__link" href="spec/space.html">空间</a>
+        <a class="site-nav__link" href="spec/components.html">组件</a>
+        <a class="site-nav__link" href="spec/voice-motion.html">文案与动效</a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="main">
-    <!-- 01 / 开场：一句话 + 八个色场，正好一屏 -->
-    <section class="hero">
-      <div class="wrap">
-        <p class="kicker rise" style="--i: 0">INK / DESIGN LANGUAGE · v1.0</p>
-        <h1 class="display hero__title rise" style="--i: 1">先感受，<br>再解释。</h1>
-        <p class="lede hero__lede rise" style="--i: 2">INK 是一套个人设计语言：用留白托住内容，用实色块表达情绪，用克制的动效解释变化。先让人感受到，再让人读懂。</p>
-        <p class="hero__meta rise" style="--i: 3">
-          <span>8 个色场</span>
-          <span>3 条原则</span>
-          <span>5 章规范</span>
-          <span>0 圆角</span>
-        </p>
-      </div>
-
-      <div class="wrap hero__band">
-        <ul class="band" aria-label="INK 的八个色场">
-          <li class="band__item tone-lake">
-            <span class="band__name">湖蓝</span>
-            <span class="band__token">#6EA8A3</span>
-          </li>
-          <li class="band__item tone-sky">
-            <span class="band__name">天青</span>
-            <span class="band__token">#87B9CE</span>
-          </li>
-          <li class="band__item tone-moss">
-            <span class="band__name">苔绿</span>
-            <span class="band__token">#8FB394</span>
-          </li>
-          <li class="band__item tone-lotus">
-            <span class="band__name">藕荷</span>
-            <span class="band__token">#A995C4</span>
-          </li>
-          <li class="band__item tone-wheat">
-            <span class="band__name">麦金</span>
-            <span class="band__token">#D2B173</span>
-          </li>
-          <li class="band__item tone-clay">
-            <span class="band__name">陶土</span>
-            <span class="band__token">#CE927C</span>
-          </li>
-          <li class="band__item tone-stone">
-            <span class="band__name">石灰</span>
-            <span class="band__token">#94A7B0</span>
-          </li>
-          <li class="band__item tone-rouge">
-            <span class="band__name">胭脂</span>
-            <span class="band__token">#C98D9B</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 02 / 原则与语气 -->
-    <section class="section" id="principles">
-      <div class="wrap">
-        <p class="kicker kicker--ink">02 / PRINCIPLES</p>
-        <h2 class="h2" style="margin-top: var(--ink-space-4); max-width: 24em;">三条原则。冲突时，按顺序裁决。</h2>
-        <p class="lede" style="margin-top: var(--ink-space-4);">原则不是愿望清单。它是两条路都能走的时候，替你选一条的规则；顺序比条目更重要。</p>
-
-        <ol class="principles">
-          <li class="principle">
-            <span class="principle__index">01</span>
-            <div class="principle__body">
-              <h3 class="h3">可读性优先于风格</h3>
-              <p>字号、行高、对比度不打折。风格不负责传输信息；当两者冲突，风格后退。</p>
-            </div>
-          </li>
-          <li class="principle">
-            <span class="principle__index">02</span>
-            <div class="principle__body">
-              <h3 class="h3">先感受，再解释</h3>
-              <p>不写宣言，不堆理念。先让页面自己成立，规则随后；解释只在被需要的时候出现。</p>
-            </div>
-          </li>
-          <li class="principle">
-            <span class="principle__index">03</span>
-            <div class="principle__body">
-              <h3 class="h3">留白是内容</h3>
-              <p>空白负责节奏和呼吸，不是没填满。一屏只主张一件事，其余退到后面。</p>
-            </div>
-          </li>
-        </ol>
-
-        <div style="margin-top: clamp(48px, 7vw, 80px);">
-          <p class="kicker kicker--ink">VOICE</p>
-          <h3 class="h2" style="margin-top: var(--ink-space-3); max-width: 24em;">原则之后，是语气。</h3>
-          <p class="lede" style="margin-top: var(--ink-space-3);">同一句话，可以像系统，也可以像人。INK 选择后者：短、具体、不吓人。</p>
-          <div class="voices">
-            <div class="voice">
-              <span class="voice__label">操作按钮</span>
-              <p class="voice__line voice__line--do"><span class="voice__mark" aria-hidden="true">✓</span><span><span class="visually-hidden">推荐：</span>开始吧</span></p>
-              <p class="voice__line voice__line--dont"><span class="voice__mark" aria-hidden="true">✕</span><span><span class="visually-hidden">避免：</span>立即开始体验</span></p>
-            </div>
-            <div class="voice">
-              <span class="voice__label">出错提示</span>
-              <p class="voice__line voice__line--do"><span class="voice__mark" aria-hidden="true">✓</span><span><span class="visually-hidden">推荐：</span>这里没填对，再试一次</span></p>
-              <p class="voice__line voice__line--dont"><span class="voice__mark" aria-hidden="true">✕</span><span><span class="visually-hidden">避免：</span>操作失败（错误码 400）</span></p>
-            </div>
-            <div class="voice">
-              <span class="voice__label">空状态</span>
-              <p class="voice__line voice__line--do"><span class="voice__mark" aria-hidden="true">✓</span><span><span class="visually-hidden">推荐：</span>这里还空着，来写第一笔</span></p>
-              <p class="voice__line voice__line--dont"><span class="voice__mark" aria-hidden="true">✕</span><span><span class="visually-hidden">避免：</span>暂无数据</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 / 彩蛋：空间连续性 -->
-    <section class="section" id="easter">
-      <div class="wrap egg">
-        <div class="egg__copy">
-          <p class="kicker kicker--ink">03 / EASTER EGG</p>
-          <h2 class="h2">展开有来处，返回有方向。</h2>
-          <p class="lede" style="margin-bottom: var(--ink-space-5);">点开这块色场：面板从它的位置展开，关闭时回到原处，滚动位置和焦点都不会丢。这不是一个新页面——你只是深入了一层。</p>
-          <p class="egg__hint">按 <kbd class="mono">Esc</kbd> 或点关闭返回原处；开启「减少动态效果」时不做位移动画，功能不变。</p>
-        </div>
-        <div>
-          <button class="egg__trigger" type="button" data-sheet-open="ink-sheet" aria-haspopup="dialog">
-            <span class="kicker kicker--on-color">SPATIAL CONTINUITY</span>
-            <span class="egg__trigger-title">从这里，<br>展开一个想法。</span>
-            <span class="egg__trigger-hint">打开 → 来源 · 上下文 · 返回</span>
-          </button>
-          <p class="egg__hint">这也是 INK 动效规范的现场示例。</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <div>
-        <p class="kicker" style="margin-bottom: var(--ink-space-2);">INK / DESIGN LANGUAGE</p>
-        <p>v1.0 · 个人设计语言标本，不是产品页面模板。</p>
-      </div>
-      <div class="site-footer__links" aria-label="规范文件与链接">
-        <a href="spec/color.html">规范正文</a>
-        <a href="DESIGN.md">DESIGN.md</a>
-        <a href="tokens.css">tokens.css</a>
-        <a href="AGENTS.md">AGENTS.md</a>
-        <a href="https://github.com/knink-owo/INK-DesignLanguage">GitHub ↗</a>
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <h1 class="display" id="hero-title">
+        <span class="display__line rise" style="--i: 0">用八种颜色</span>
+        <span class="display__outline rise" style="--i: 1">排版中文界面</span>
+      </h1>
+      <p class="hero__lead rise" style="--i: 2">八个色场、1px 细线、0 圆角。数值写在 tokens.css，规则写在 DESIGN.md，人和 Agent 读同一份文件。</p>
+      <div class="hero__foot">
+        <p class="hero__note">DESIGN.md · AGENTS.md · tokens.css<br>三份文件，一套可以照着做的规范。</p>
+        <a class="text-link" href="spec/color.html">从色彩开始</a>
       </div>
     </div>
-  </footer>
 
-  <!-- 空间连续性示例面板 -->
-  <dialog class="sheet" id="ink-sheet" aria-labelledby="sheet-title">
-    <div class="sheet__inner">
-      <button class="sheet__close" type="button" data-sheet-close aria-label="关闭并返回原处">✕</button>
-      <p class="kicker sheet__eyebrow">ORIGIN → DETAIL → RETURN</p>
-      <h2 class="h2 sheet__title" id="sheet-title">你没有离开，<br>只是深入了一层。</h2>
-      <p class="lede sheet__lede">面板从触发色块的位置展开。底层页面没有被替换，滚动位置和焦点都还在原地；关闭时，它回到出发的地方。</p>
+    <ol class="hero__wall" aria-label="八个色场">
+      <li class="wall-band tone-lake"><span class="wall-band__name">湖蓝</span><span class="wall-band__hex">#6EA8A3</span></li>
+      <li class="wall-band tone-sky"><span class="wall-band__name">天青</span><span class="wall-band__hex">#87B9CE</span></li>
+      <li class="wall-band tone-moss"><span class="wall-band__name">苔绿</span><span class="wall-band__hex">#8FB394</span></li>
+      <li class="wall-band tone-lotus"><span class="wall-band__name">藕荷</span><span class="wall-band__hex">#A995C4</span></li>
+      <li class="wall-band tone-wheat"><span class="wall-band__name">麦金</span><span class="wall-band__hex">#D2B173</span></li>
+      <li class="wall-band tone-clay"><span class="wall-band__name">陶土</span><span class="wall-band__hex">#CE927C</span></li>
+      <li class="wall-band tone-stone"><span class="wall-band__name">石灰</span><span class="wall-band__hex">#94A7B0</span></li>
+      <li class="wall-band tone-rouge"><span class="wall-band__name">胭脂</span><span class="wall-band__hex">#C98D9B</span></li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="chapters-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">目录 / 五章</span>
+        <h2 class="section-head__title" id="chapters-title">五章，覆盖界面上会遇到的判断</h2>
+        <p class="section-head__lede">颜色、文字、间距、组件、文案与动效。每章只写能照着执行的数值和做法。</p>
+      </div>
+
+      <div class="chapter-index">
+        <a class="chapter-row chapter-row--lake" href="spec/color.html">
+          <span class="chapter-row__num">01</span>
+          <span class="chapter-row__title">色彩</span>
+          <span class="chapter-row__lede">八个色场，各管一类信息；中性色只做底和字。</span>
+          <span class="chapter-row__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="chapter-row chapter-row--lotus" href="spec/typography.html">
+          <span class="chapter-row__num">02</span>
+          <span class="chapter-row__title">文字</span>
+          <span class="chapter-row__lede">七级字号，两种字重；正文 16px 起，行高 1.75。</span>
+          <span class="chapter-row__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="chapter-row chapter-row--moss" href="spec/space.html">
+          <span class="chapter-row__num">03</span>
+          <span class="chapter-row__title">空间</span>
+          <span class="chapter-row__lede">间距只用刻度上的数，断点在 980 和 680。</span>
+          <span class="chapter-row__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="chapter-row chapter-row--stone" href="spec/components.html">
+          <span class="chapter-row__num">04</span>
+          <span class="chapter-row__title">组件</span>
+          <span class="chapter-row__lede">44px 触控高度，1px 边线，状态只换底色。</span>
+          <span class="chapter-row__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="chapter-row chapter-row--clay" href="spec/voice-motion.html">
+          <span class="chapter-row__num">05</span>
+          <span class="chapter-row__title">文案与动效</span>
+          <span class="chapter-row__lede">三档时长，四条返回路径；减少动效时全部归零。</span>
+          <span class="chapter-row__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rules-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">原则 / 三条</span>
+        <h2 class="section-head__title" id="rules-title">三条原则，冲突时按顺序裁决</h2>
+        <p class="section-head__lede">读得清优先于分得清，分得清优先于留白够。三条都满足之后，再谈风格。</p>
+      </div>
+
+      <div>
+        <div class="rule-row">
+          <span class="mono-label">01 / 读得清</span>
+          <h3 class="rule-row__title">先保证读得清</h3>
+          <p class="rule-row__text">正文不小于 16px，行高 1.75，墨色正文对纸白的对比度 12.9:1。字号不够大时先加留白，不加装饰。</p>
+        </div>
+        <div class="rule-row">
+          <span class="mono-label">02 / 分得清</span>
+          <h3 class="rule-row__title">一块色场只说一件事</h3>
+          <p class="rule-row__text">一屏只出现一块色场，色场里只放深墨文字。颜色用来分区，不用来强调；需要强调时，加粗或留白。</p>
+        </div>
+        <div class="rule-row">
+          <span class="mono-label">03 / 留白够</span>
+          <h3 class="rule-row__title">间距只用刻度上的数</h3>
+          <p class="rule-row__text">4 到 128，共十级。不写 13px，也不写 18px；留白不够就删内容，不加背景和分隔装饰。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <div class="site-footer__brand">INK</div>
+        <p class="site-footer__sub">面向中文界面的设计语言。数值在 tokens.css，规则在 DESIGN.md，验收在 AGENTS.md。零依赖、零构建、零外链字体。</p>
+      </div>
+
+      <div>
+        <div class="site-footer__title">规范</div>
+        <a class="site-footer__link" href="spec/color.html">色彩</a>
+        <a class="site-footer__link" href="spec/typography.html">文字</a>
+        <a class="site-footer__link" href="spec/space.html">空间</a>
+        <a class="site-footer__link" href="spec/components.html">组件</a>
+        <a class="site-footer__link" href="spec/voice-motion.html">文案与动效</a>
+      </div>
+
+      <div>
+        <div class="site-footer__title">文件</div>
+        <a class="site-footer__link" href="DESIGN.md">DESIGN.md</a>
+        <a class="site-footer__link" href="AGENTS.md">AGENTS.md</a>
+        <a class="site-footer__link" href="tokens.css">tokens.css</a>
+        <a class="site-footer__link" href="tokens.json">tokens.json</a>
+        <a class="site-footer__link" href="llms.txt">llms.txt</a>
+      </div>
+
+      <div>
+        <div class="site-footer__title">源码</div>
+        <a class="site-footer__link" href="https://github.com/knink-owo/INK-DesignLanguage">GitHub</a>
+        <a class="site-footer__link" href="README.md">站点说明</a>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span class="site-footer__fine">© 2026 INK · 静态站，零依赖</span>
+      <button class="link-button site-footer__fine" type="button" data-sheet-open="example-sheet">打开面板示例</button>
+    </div>
+  </div>
+</footer>
+
+<dialog class="sheet" id="example-sheet" aria-labelledby="example-sheet-title">
+  <div class="sheet__inner">
+    <div class="sheet__head">
+      <h2 class="sheet__title" id="example-sheet-title">面板从触发按钮的位置展开</h2>
+      <button class="sheet__close" type="button" data-sheet-close>关闭</button>
+    </div>
+    <div class="sheet__body">
+      <p class="lede">这块面板演示空间连续性：从哪来，回哪去。按 Esc、点面板外、点「回到原处」都能关闭。</p>
       <div class="sheet__steps">
         <div class="sheet__step">
-          <strong>01 / Origin</strong>
-          来源：面板从触发元素的几何位置展开，方向可以理解。
+          <span class="sheet__step-num">01</span>
+          <span class="sheet__step-title">起点</span>
+          <span class="sheet__step-text">计算触发按钮和面板的矩形，取中心点与尺寸比例。</span>
         </div>
         <div class="sheet__step">
-          <strong>02 / Context</strong>
-          上下文：底层页面保留，不清空滚动位置，不打断正在做的事。
+          <span class="sheet__step-num">02</span>
+          <span class="sheet__step-title">展开</span>
+          <span class="sheet__step-text">从按钮的位置和大小开始，380ms 展开到面板自己的位置。</span>
         </div>
         <div class="sheet__step">
-          <strong>03 / Return</strong>
-          返回：关闭或按 Esc，焦点回到触发元素，路径清楚。
+          <span class="sheet__step-num">03</span>
+          <span class="sheet__step-title">返回</span>
+          <span class="sheet__step-text">关闭时收回按钮，焦点回到触发按钮，不丢阅读位置。</span>
         </div>
       </div>
       <div class="sheet__actions">
-        <button class="btn btn--primary" type="button" data-sheet-close>返回原处</button>
-        <a class="btn" href="spec/components.html">查看组件规范</a>
+        <button class="btn btn--primary" type="button" data-sheet-close>回到原处</button>
+        <a class="btn btn--quiet" href="spec/voice-motion.html">看动效规范</a>
       </div>
     </div>
-  </dialog>
+  </div>
+</dialog>
 
-  <script src="assets/site.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

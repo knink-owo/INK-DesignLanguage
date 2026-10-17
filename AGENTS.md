@@ -1,148 +1,220 @@
-# AGENTS.md · INK 设计语言的 Agent 实现约束
+# AGENTS.md · INK 页面实现规则
 
-这份文档给「要基于 INK 做页面 / 改页面」的 AI Agent 看。人类读者请先读 [`DESIGN.md`](DESIGN.md)。
+给照着 INK 写页面的 Agent 看。人读的「为什么」在 `DESIGN.md`，数值只改 `tokens.css`，机器可读副本是 `tokens.json`。
 
-**开工顺序：** 读 `DESIGN.md` → 读 `tokens.css` → 读 `assets/site.css` 的类名清单 → 再动手。
-**一句话：** 只组合已有 token 与类名，不新增设计语言。
+开工顺序：
+
+1. 读 `DESIGN.md` 的第 1、2、4、6、8、9 节。
+2. 打开 `tokens.css`，确认要用的变量都存在。
+3. 打开 `assets/site.css`，只用里面已经定义的 class。
+4. 需要完整样例时，读 `spec/color.html`（章节页模板）和 `index.html`（首页模板）。
 
 ---
 
-## 1. 硬约束（不可协商）
+## 1. 硬约束
 
-1. **零依赖**：不引入框架、构建工具、CDN、外链字体、图标库。新页面 = 纯 HTML + 现有 CSS/JS。
-2. **只用 token**：颜色、字号、间距、圆角、阴影、时长全部来自 `tokens.css`。页面里不出现裸色值 / 裸 `px` 间距（色块演示可内联 `var(--ink-*)`）。
-3. **不新增视觉语言**：不新增品牌色、不改圆角（恒 0）、不加渐变、不加玻璃拟态卡片、不加第三种字体。
-4. **不复制 DNDL 的品牌**：可以参考结构（章节、页脚、token 命名），不复制其色值、文案、布局细节。
-5. **中文文案**：短句、动词具体、不用营销话术（见 `DESIGN.md` §8/§10）。不写「关于我」、博客、案例区。
-6. **可访问性不许退步**：跳转链接、`:focus-visible` 焦点环、`aria-current`、44px 触控目标、`prefers-reduced-motion` 降级。
-7. **每页唯一 h1**；标题不跳级；图片必须有 `alt` 或标注为装饰。
-8. **顶栏只有品牌 + 五章导航**（导航右对齐），不加入口按钮；首页色带是静态展示，不做跳转、不加 hover 动效。
+1. **零依赖。** 没有框架、构建、CDN、外链字体、图标库。页面只引 `tokens.css`、`assets/site.css`、`assets/site.js`、`assets/favicon.svg`。
+2. **只用 token。** 颜色、字号、间距、时长都写 `var(--ink-*)`。不在页面里写 `#hex`、`rgb()`、裸 px 间距。
+3. **不新增设计语言。** 不加色相、不加圆角、不加渐变、不加玻璃拟态、不加第三种字体。
+4. **一屏一块色场。** 色场里只放 `--ink-text-on-color`。反白只放在 `--ink-ink-deep` 底上。
+5. **文案按 DESIGN.md 第 8 节。** 动词开头，给数字，一句一事。禁止破折号，禁止「不是……而是……」，禁止「让……」句式。
+6. **可访问性不回退。** skip link、`:focus-visible`、`aria-current`、44px 触控、`prefers-reduced-motion` 降级，一个都不能少。
+7. **每页唯一 h1，标题不跳级。** 图片必须有 alt（本项目页面内不放图片）。
+8. **顶栏只有品牌和五章导航。** 右对齐，不加入口按钮。
+9. **每页照样板结构写。** 章节页照 `spec/color.html` 抄，不自己发明区块顺序。
+10. **改完过第 7 节验收清单。**
+
+---
 
 ## 2. 文件地图
 
-```
-index.html                 首页（3 个模块）
-spec/color.html            色彩
-spec/typography.html       文字
-spec/space.html            空间
-spec/components.html       组件
-spec/voice-motion.html     语气与动效
-tokens.css                 唯一 token 源
-assets/site.css            唯一样式源（reset + 组件 + 页面类）
-assets/site.js             空间连续性对话框 + 复制按钮
-assets/favicon.svg         INK 标记
-DESIGN.md                  设计规范正文
-AGENTS.md                  本文件
-tokens.json                机器可读 token 导出
-llms.txt                   给 LLM 的入口索引
-```
+| 路径 | 作用 |
+|---|---|
+| `site/index.html` | 首页：首屏、五章目录、三条原则、浮层示例 |
+| `site/spec/color.html` | 第 01 章 色彩（章节页模板） |
+| `site/spec/typography.html` | 第 02 章 文字 |
+| `site/spec/space.html` | 第 03 章 空间 |
+| `site/spec/components.html` | 第 04 章 组件 |
+| `site/spec/voice-motion.html` | 第 05 章 文案与动效 |
+| `site/tokens.css` | 唯一数值源 |
+| `site/tokens.json` | tokens.css 的机器副本，由 `tools/sync_tokens.py` 生成，不手改 |
+| `site/assets/site.css` | 全站样式，页面不写 `<style>` |
+| `site/assets/site.js` | 浮层展开收起、复制按钮 |
+| `site/assets/favicon.svg` | 站点图标 |
+| `site/assets/og.png` | 分享图（不进页面） |
+| `site/DESIGN.md` | 为什么 |
+| `site/AGENTS.md` | 怎么做与验收（本文件） |
+| `site/README.md` | 站点说明（公开） |
+| `site/llms.txt` | 给模型的入口清单 |
 
-相对路径规则：根目录页面用 `tokens.css` / `assets/...`；`spec/` 下用 `../tokens.css` / `../assets/...`。
+相对路径：根页用 `tokens.css`、`assets/…`、`spec/…`；`spec/` 下的页面用 `../tokens.css`、`../assets/…`、`../index.html`，同目录章节直接写文件名。
 
-## 3. 新页面骨架（照抄，改标题与内容）
+---
+
+## 3. 章节页骨架
 
 ```html
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>标题 · INK Design Language</title>
-  <meta name="description" content="一句话描述。">
-  <meta name="theme-color" content="#FAF9F5">
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../tokens.css">
-  <link rel="stylesheet" href="../assets/site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>色彩 · INK 设计语言</title>
+<meta name="description" content="一句话说清本章内容。">
+<meta name="theme-color" content="#FAF9F5">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="canonical" href="https://knink-owo.github.io/INK-DesignLanguage/spec/color.html">
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到内容</a>
-  <header class="site-header">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="site-header">
+  <div class="wrap">
     <div class="site-header__inner">
-      <a class="brand" href="../index.html">INK <span class="brand__sub">/ Design Language</span></a>
-      <nav class="site-nav" aria-label="规范正文">
-        <a href="color.html">色彩</a>
-        <a href="typography.html">文字</a>
-        <a href="space.html">空间</a>
-        <a href="components.html">组件</a>
-        <a href="voice-motion.html">语气与动效</a>
+      <a class="brand" href="../index.html">INK<span class="brand__sub">设计语言</span></a>
+      <nav class="site-nav" aria-label="章节">
+        <a class="site-nav__link" href="color.html" aria-current="page">色彩</a>
+        <a class="site-nav__link" href="typography.html">文字</a>
+        <a class="site-nav__link" href="space.html">空间</a>
+        <a class="site-nav__link" href="components.html">组件</a>
+        <a class="site-nav__link" href="voice-motion.html">文案与动效</a>
       </nav>
     </div>
-  </header>
-  <main id="main">
-    <header class="chapter-hero">
-      <div class="wrap">
-        <div class="chapter-hero__meta">
-          <a class="kicker" href="../index.html">INK / 规范</a>
-          <span class="chip">CH 06 · 应用</span>
-        </div>
-        <h1 class="h1 chapter-hero__title">标题。<br>第二行。</h1>
-        <p class="lede chapter-hero__lede">一段 40–80 字的导语。</p>
-      </div>
-    </header>
-    <div class="chapter-body">
-      <div class="wrap">
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">01 / SECTION</span>
-              <h2 class="h2">小节标题</h2>
-            </div>
-            <p class="lede">小节导语。</p>
-          </div>
-          <!-- 内容：.grid/.panel/.table-wrap/.do-dont/.callout/.code-block 等 -->
-        </section>
-        <nav class="pager" aria-label="章节目录"> … </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="chapter-hero tone-lake">
+    <div class="wrap">
+      <div class="chapter-hero__inner">
+        <span class="mono-label chapter-hero__index">01 / 色彩</span>
+        <h1 class="chapter-hero__title">八个色场</h1>
+        <p class="chapter-hero__lede">一章一句导语，说清本章解决什么问题。</p>
+        <p class="chapter-hero__meta">关键数值 / 一行等宽</p>
       </div>
     </div>
-  </main>
-  <footer class="site-footer"> … 与现有页脚一致，链接加 ../ … </footer>
-  <script src="../assets/site.js" defer></script>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">01 / 主题</span>
+        <h2 class="section-head__title">一节一句话标题</h2>
+        <p class="section-head__lede">一句导语，给具体信息。</p>
+      </div>
+      <!-- 内容：compare / rule-row / spec-table / code-block / 色墙 -->
+    </div>
+  </section>
+
+  <div class="wrap">
+    <nav class="pager" aria-label="章节翻页">
+      <a class="pager__link" href="typography.html">
+        <span class="pager__dir">上一章</span>
+        <span class="pager__title">← 文字</span>
+      </a>
+      <a class="pager__link pager__link--next" href="space.html">
+        <span class="pager__dir">下一章</span>
+        <span class="pager__title">空间 →</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer"><!-- 照 index.html 或 color.html --></footer>
+<script src="../assets/site.js" defer></script>
 </body>
 </html>
 ```
 
-## 4. 可用类名（不要造新类；缺布局时优先组合 `.grid` + `.panel`）
+章节与色场对应：色彩 `tone-lake`、文字 `tone-lotus`、空间 `tone-moss`、组件 `tone-stone`、文案与动效 `tone-clay`。
 
-| 用途 | 类名 |
-| --- | --- |
-| 布局 | `.wrap` `.section` `.chapter-hero` `.chapter-body` `.spec-section` `.spec-head` `.spec-head__index` |
-| 网格 | `.grid` `.grid--2` `.grid--3` `.grid--4` `.grid--6` |
-| 文字 | `.display` `.h1` `.h2` `.h3` `.lede` `.dim` `.kicker` `.kicker--ink` `.kicker--on-color` `.mono` `.visually-hidden` |
-| 按钮 | `.btn` `.btn--primary` `.btn--field` `.copy-btn` |
-| 色场 | `.tone-lake` `.tone-sky` `.tone-moss` `.tone-lotus` `.tone-wheat` `.tone-clay` `.tone-stone` `.tone-rouge` |
-| 容器 | `.panel` `.panel--flush` `.panel__label` `.tile` `.tile--link` `.tile__meta` `.swatch` `.swatch__color` `.swatch__name` `.swatch__meta` `.swatch__role` `.swatch-mini` |
-| 表格 | `.table-wrap` `.spec-table` |
-| 对比 | `.do-dont` `.do-dont__panel--do` `.do-dont__panel--dont` `.do-dont__head` `.do-dont__body` |
-| 提示 | `.callout` `.callout--warn` `.code-block` `.code-block__head` |
-| 标签 | `.chip` `.tag` |
-| 其他 | `.pager` `.pager__link` `.pager__link--next` `.pager__dir` `.field` `.field__label` `.input` `.field__hint` `.field__error` |
+---
 
-复制按钮：`<button class="copy-btn" type="button" data-copy-target="#目标id">复制</button>`，目标为 `<pre>` / 任何元素。
-空间连续性：`<button data-sheet-open="ink-sheet">` + 页面内 `<dialog class="sheet" id="ink-sheet">`（结构照抄 `index.html` 或 `spec/voice-motion.html`）。
+## 4. 可用结构
 
-## 5. 验收清单（提交前逐条勾）
+- **页面宽度：** `.wrap`。
+- **章节首屏：** `.chapter-hero` 加 `.tone-*`，内部 `.chapter-hero__inner`、`__index`、`__title`、`__lede`、`__meta`。
+- **内容节：** `.section`，首屏之后自动去掉上边线。节头 `.section-head`（`__index` 等宽序号、`__title` h2、`__lede` 导语）。
+- **对照：** `.compare` 加两列 `.compare__col`，列内 `__title`（含 `.mark--yes` / `.mark--no`）、`__example`、`__note`。
+- **规则行：** `.rule-row`，列内 `.mono-label`、`.rule-row__title`（h3）、`.rule-row__text`。
+- **表格：** `.table-wrap` 包 `.spec-table`，必须有 caption；窄屏横向滚动。
+- **代码块：** `.code-block` 包 `__head`（等宽标签加 `.copy-btn`）和 `pre.code-block__body`（带 id）。复制按钮写 `<button class="copy-btn" type="button" data-copy-target="#id"><span data-copy-label>复制</span></button>`。
+- **色场墙：** `.field-wall` 加 8 个 `.field.tone-*`，内部 `.field__name`、`.field__hex`。
+- **中性色列表：** `.neutral-list` 加 `.neutral-row`。swatch 用内联 `style="background: var(--ink-…)"`，其余列是 `__name`、`__hex`、`__role`。
+- **字号阶梯：** `.type-list` 加 `.type-row`（`__name`、`__spec`、`__sample`），样本加 `.sample--display/h1/h2/h3/lead/body/small/label`。
+- **间距阶梯：** `.scale-list` 加 `.scale-row`（`__name`、`__value`、`__bar`）。
+- **网格演示：** `.grid-demo`、`.grid-demo__cell`、`--span-4`、`--lake/--lotus/--moss`。
+- **按钮：** `.btn`，加 `.btn--primary`（实心）、`.btn--field`（湖蓝）、`.btn--quiet`（文字）。一行用 `.btn-row`。
+- **输入：** `.form-field` 包 `.form-field__label`、`.input`、`.form-field__hint`、`.form-field__error`。错误态给 input 加 `aria-invalid="true"` 和 `aria-describedby`。
+- **链接块：** `.tile-grid` 包 `a.tile`（`__label`、`__title`、`__arrow`）。
+- **标签：** `.tag-row` 包 `.chip`（状态）、`.tag`（分类）。
+- **提示：** `.note`。
+- **翻页：** `.pager` 加 `.pager__link`（`--next`），内部 `__dir`、`__title`。
+- **浮层：** `<dialog class="sheet" id="…">` 加 `.sheet__inner/__head/__title/__close/__body/__steps/__step/__step-num/__step-title/__step-text/__actions`。触发写 `data-sheet-open="id"`，关闭写 `data-sheet-close`。
+- **页脚：** `.site-footer` 四列加 `.site-footer__bottom`，示例触发按钮用 `.link-button`。
+- **目录行：** `.chapter-index` 加 `a.chapter-row`（`--lake` 等八种色），内部 `__num`、`__title`、`__lede`、`__arrow`。悬停时整行填色。
 
-- [ ] 页面在 `python -m http.server` 下打开无 404、无控制台报错
-- [ ] 只有一处 h1；标题层级连续；`aria-current="page"` 指对
-- [ ] 无裸色值/裸间距；颜色与尺寸全部来自 `var(--ink-*)`
-- [ ] 一屏一个色场、一个主按钮
-- [ ] 键盘 Tab 能到达所有交互元素，焦点环可见
-- [ ] 用 `prefers-reduced-motion: reduce` 模拟后无动画、功能完整
-- [ ] 375px 宽度下不横向滚动；正文 ≥16px，表格/注释等辅助文本 ≥14px
-- [ ] 中文文案符合 `DESIGN.md` §8（无营销话术、✓/✕ 成对）
-- [ ] 未引入任何外部资源（字体/CDN/脚本）
+新增 class 之前先看 `site.css` 有没有现成的；没有就用现成组合表达，并在提交说明里写清楚。页面里不写 `<style>`。
+
+---
+
+## 5. 文案
+
+- 标题和正文用实词和动词，给数字。例：「八个色场」「先把一句排好」「留白按刻度走」。
+- 禁止破折号、对仗格言、「让……」句式、空泛形容词、感叹号。
+- 每节导语一句话，不超过 40 个汉字。
+- 「推荐 / 避免」成对出现，用 `.mark--yes` / `.mark--no` 标记。
+
+---
 
 ## 6. 常见错误
 
-- 把色场当背景铺满整页、上面压白字 → 违反对比度红线。
-- 给按钮加圆角或胶囊形 → 圆角恒 0。
-- 发明 `--ink-purple`、`--ink-space-5xl` 之类新 token → 禁止。
-- 用内联 `style="color: #333"` → 必须用 `var(--ink-text-primary)`。
-- 首页加「关于我 / 最近文章 / 作品集」模块 → 明确不做（`DESIGN.md` §10）。
-- 用 `Alert`/`scroll` 事件做视差 → 禁止。
+1. 色场铺满整页，或一屏出现两块色场。
+2. 给色场加白字，或给按钮加圆角。
+3. 页面里写 `style="background:#87B9CE"`，应该写 `var(--ink-sky)`。
+4. 间距写 13px、18px、36px。
+5. 用 `<div>` 当按钮，或漏掉 `aria-current`、`aria-labelledby`。
+6. 复制旧版文案，例如「给 Agent」入口、首屏双入口 CTA。
+7. 在首屏塞版本号、装饰性数字、滚动提示。
+8. 新增 `<style>` 或外链资源。
+9. 直接改 `tokens.json`，或改完 `tokens.css` 忘记跑同步脚本。
 
-## 7. 部署
+---
 
-- 仓库：`knink-owo/INK-DesignLanguage`，GitHub Pages 从 `main` 分支根目录发布。
-- 站点入口：https://knink-owo.github.io/INK-DesignLanguage/
-- 纯静态，无需构建步骤；推送到 `main` 即发布。`.nojekyll` 已存在，避免 Jekyll 处理。
+## 7. 验收清单
+
+改完页面、发布之前逐项打勾：
+
+1. `python tools/check_site.py`：`pages: 6`，每页 h1 = 1，errors 为 0。
+2. `python tools/sync_tokens.py --check`：`tokens.json` 与 `tokens.css` 一致。
+3. `python tools/check_site.py --strict` 通过：裸色值、裸间距、未知 class、缺失资源全部为 0。
+4. `node tools/audit.js`：`artifacts/screenshots/local-latest/report.json` 里 `errors` 为空，截图 17 张以上，`console` 为空。
+5. 浮层：打开后焦点在面板内，Esc、点遮罩、点关闭三条路都能关，关闭后焦点回到触发按钮。
+6. `prefers-reduced-motion: reduce` 下 `--ink-duration-expand` 为 `0ms`，`.rise` 无动画。
+7. 375 / 768 / 1440 三档宽度：无横向滚动，导航不换行。
+8. 首屏高度约等于视口高减 64px，色墙贴底（±2px）。
+9. 页面无外部资源：`grep -R "https\?://" site/*.html site/spec/*.html` 只剩 canonical、og、GitHub 源码链接。
+10. `node --check tools/*.js` 通过；`tokens.json` 能 `JSON.parse`。
+11. 发布后打开线上地址，再跑一次 `node tools/audit.js --url https://knink-owo.github.io/INK-DesignLanguage/`。
+
+---
+
+## 8. 本地预览与发布
+
+```bash
+python -m http.server 8802 --directory site      # 本地预览
+python tools/check_site.py                        # 静态检查
+python tools/sync_tokens.py --check               # token 平价
+node tools/audit.js                               # 浏览器审计与截图
+gh auth status                                    # 确认 gh 已登录
+node tools/deploy.js                              # 发布到 GitHub Pages
+```
+
+发布规则：
+
+- 发布源是 GitHub 仓库 `knink-owo/INK-DesignLanguage` 的 `main` 分支根目录，内容就是 `site/` 的复制。
+- 本机 `git remote` 不可用，`deploy.js` 通过 GitHub REST API 逐文件提交，然后轮询 Pages 构建。
+- 不强制覆盖、不跳过构建检查。构建失败就停下来修，不重复上传。
+- 本地预览端口只记 8802。旧文档里的 8642 是错的。

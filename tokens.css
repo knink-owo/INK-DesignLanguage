@@ -1,85 +1,83 @@
 /* ==========================================================================
-   INK Design Language · v1.0 · implementation 1.0.0
-
-   Framework-neutral tokens. No reset, no layout, no components.
-   This file is the single source of truth for implementation values.
-   Principles and usage rules live in DESIGN.md; agent constraints in AGENTS.md.
-   Machine-readable twin: tokens.json
+   INK Design Language · tokens.css
+   v1.1 · implementation 1.1.0 · 2026-10
+   --------------------------------------------------------------------------
+   全站唯一的数值来源。改视觉先改这里，再同步：
+   - site/tokens.json   （machine twin，由 tools/sync_tokens.py 生成）
+   - site/DESIGN.md     （人读的规则，只解释为什么）
+   - site/AGENTS.md     （Agent 读的约束与验收）
+   硬规则：圆角恒 0；描边恒 1px 实线；阴影只给浮层；不引入外链资源。
    ========================================================================== */
 
 :root {
   color-scheme: light;
 
-  /* ---------------------------------------------------------------------
-     1. Brand fields — immutable v1.0 palette.
-     All eight fields carry --ink-text-on-color (dark ink) by default.
-     White text on these fields does NOT pass AA; do not use it.
-     --------------------------------------------------------------------- */
-  --ink-lake: #6EA8A3;    /* 湖蓝 · 品牌 / 主要强调 */
-  --ink-sky: #87B9CE;     /* 天青 · 内容 / 信息 */
-  --ink-moss: #8FB394;    /* 苔绿 · 积极 / 功能 */
-  --ink-lotus: #A995C4;   /* 藕荷 · 创作 / 探索 */
-  --ink-wheat: #D2B173;   /* 麦金 · 提醒 / 辅助 */
-  --ink-clay: #CE927C;    /* 陶土 · 活动 / 次级强调 */
-  --ink-stone: #94A7B0;   /* 石灰 · 中性 / 分区 */
-  --ink-rouge: #C98D9B;   /* 胭脂 · 错误 / 危险 */
+  /* --- 色场：八个，各管一类信息 --------------------------------------- */
+  --ink-lake:   #6EA8A3;   /* 湖蓝 */
+  --ink-sky:    #87B9CE;   /* 天青 */
+  --ink-moss:   #8FB394;   /* 苔绿 */
+  --ink-lotus:  #A995C4;   /* 藕荷 */
+  --ink-wheat:  #D2B173;   /* 麦金 */
+  --ink-clay:   #CE927C;   /* 陶土 */
+  --ink-stone:  #94A7B0;   /* 石灰 */
+  --ink-rouge:  #C98D9B;   /* 胭脂 */
 
-  /* ---------------------------------------------------------------------
-     2. Base surfaces and ink.
-     --------------------------------------------------------------------- */
-  --ink-canvas: #FAF9F5;
-  --ink-surface: #FFFFFF;
-  --ink-ink: #26302C;
-  --ink-ink-secondary: #5E6A64;
-  --ink-ink-muted: #8B948E;
-  --ink-line: #E5E8E1;
+  /* --- 中性 ----------------------------------------------------------- */
+  --ink-canvas:       #FAF9F5;   /* 纸白，页面底色 */
+  --ink-surface:      #FFFFFF;   /* 纯白，只给输入框与浮层 */
+  --ink-ink:          #26302C;   /* 墨，正文与标题 */
+  --ink-ink-deep:     #1B241F;   /* 深墨，色带页脚与代码块 */
+  --ink-ink-secondary: #5E6A64;  /* 次要文字，5.36:1 on canvas */
+  --ink-ink-muted:    #8B948E;   /* 弱化标记，仅用于非文本或大号字 */
+  --ink-line:         #E5E8E1;   /* 细线 */
+  --ink-text-on-color: #16211D;  /* 色场上的文字，6.1–8.1:1 */
+  --ink-text-on-ink:  #FFFFFF;   /* 深墨上的文字，13.6:1 */
 
-  /* ---------------------------------------------------------------------
-     3. Semantic text and control roles.
-     Meaning is separate from the raw value. Use these in UI.
-     --------------------------------------------------------------------- */
+  /* --- 语义别名：组件只引用这一层 ------------------------------------- */
   --ink-text-primary: var(--ink-ink);
-  --ink-text-secondary: #5E6A64;      /* 5.36:1 on canvas */
-  --ink-text-muted: #8B948E;          /* decorative / non-informative only */
-  --ink-text-on-color: #16211D;       /* 6.12:1+ on all eight brand fields */
-  --ink-text-on-ink: #FFFFFF;
-  --ink-focus: #16211D;
+  --ink-text-secondary: var(--ink-ink-secondary);
+  --ink-text-muted: var(--ink-ink-muted);
+  --ink-text-secondary-on-ink: rgba(250, 249, 245, 0.64);
+  --ink-line-on-ink: rgba(255, 255, 255, 0.2);     /* 深墨上的细线 */
+  --ink-band-line: rgba(255, 255, 255, 0.32);       /* 色场之间的细线 */
+  --ink-link: var(--ink-ink);
+  --ink-focus: var(--ink-ink);
+  --ink-focus-width: 2px;
   --ink-focus-offset: 4px;
-  --ink-control-border: #5E6A64;
-  --ink-link: var(--ink-text-primary); /* links also carry an underline */
+  --ink-control-border: var(--ink-ink-secondary);
+  --ink-success: #3F6B4C;  /* 4.6:1 on surface */
+  --ink-danger: #8C4150;   /* 5.8:1 on surface */
+  --ink-overlay: rgba(22, 33, 29, 0.42);
 
-  /* ---------------------------------------------------------------------
-     4. Typography.
-     --------------------------------------------------------------------- */
-  --ink-font: "Segoe UI", "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei",
-    "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  --ink-font-display: "Segoe UI Light", "Segoe UI", "PingFang SC",
-    "HarmonyOS Sans SC", "Microsoft YaHei", sans-serif;
+  /* --- 字体 ----------------------------------------------------------- */
+  --ink-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --ink-font-mono: "Cascadia Code", "SFMono-Regular", Consolas,
     "Liberation Mono", monospace;
 
-  --ink-weight-display: 300;
+  /* --- 字重与字号 ----------------------------------------------------- */
   --ink-weight-body: 400;
-  --ink-weight-kicker: 600;
+  --ink-weight-display: 600;
   --ink-weight-strong: 600;
 
-  --ink-size-display: clamp(3rem, 7.2vw, 5.75rem);
-  --ink-size-h1: clamp(2.25rem, 4.2vw, 3.5rem);
-  --ink-size-h2: clamp(1.5rem, 2.6vw, 2.25rem);
-  --ink-size-h3: clamp(1.125rem, 1.6vw, 1.375rem);
+  --ink-size-display: clamp(3.25rem, 8vw, 7.5rem);    /* 52 → 120px */
+  --ink-size-h1: clamp(2.75rem, 6vw, 5.5rem);         /* 44 → 88px */
+  --ink-size-h2: clamp(2rem, 3.2vw, 2.75rem);         /* 32 → 44px */
+  --ink-size-h3: clamp(1.375rem, 1.8vw, 1.75rem);     /* 22 → 28px */
+  --ink-size-lead: clamp(1.125rem, 1.4vw, 1.375rem);  /* 18 → 22px */
   --ink-size-body: 1rem;
   --ink-size-small: 0.875rem;
-  --ink-size-kicker: 0.6875rem;
+  --ink-size-mono: 0.75rem;
+  --ink-size-label: 0.6875rem;
 
-  --ink-leading-display: 1.05;
-  --ink-leading-heading: 1.2;
+  --ink-leading-display: 1;
+  --ink-leading-heading: 1.14;
   --ink-leading-body: 1.75;
-  --ink-tracking-kicker: 2.4px;
-  --ink-tracking-display: -0.02em;
+  --ink-tracking-display: -0.035em;
+  --ink-tracking-label: 0.14em;
+  --ink-stroke-display: 2px;
 
-  /* ---------------------------------------------------------------------
-     5. Space. A 4-based scale. Section rhythm is product-local, not brand.
-     --------------------------------------------------------------------- */
+  /* --- 间距：只用这十个数 --------------------------------------------- */
   --ink-space-1: 4px;
   --ink-space-2: 8px;
   --ink-space-3: 12px;
@@ -91,66 +89,49 @@
   --ink-space-9: 96px;
   --ink-space-10: 128px;
 
-  /* ---------------------------------------------------------------------
-     6. Geometry, layout, targets, focus.
-     --------------------------------------------------------------------- */
-  --ink-radius: 0px;
-  --ink-wrap: 1200px;
-  --ink-gutter: clamp(20px, 5vw, 64px);
+  /* --- 几何 ----------------------------------------------------------- */
+  --ink-radius: 0;
+  --ink-wrap: 1280px;
+  --ink-gutter: clamp(20px, 4vw, 56px);
   --ink-header-h: 64px;
-  --ink-target-min: 44px;
-  --ink-focus-width: 2px;
+  --ink-target: 44px;
+  --ink-measure: 34em;
   --ink-border: 1px solid var(--ink-line);
   --ink-border-strong: 1px solid var(--ink-ink);
 
-  /* ---------------------------------------------------------------------
-     7. Elevation. Shadows explain hierarchy; they are not decoration.
-     --------------------------------------------------------------------- */
-  --ink-shadow-0: none;
-  --ink-shadow-1: none;
-  --ink-shadow-2: 0 10px 30px rgba(38, 48, 44, 0.12);
-  --ink-shadow-3: 0 22px 60px rgba(38, 48, 44, 0.16);
-  --ink-shadow-4: 0 36px 96px rgba(38, 48, 44, 0.20);
-  --ink-z-floating: 20;
+  /* --- 层级与浮层 ----------------------------------------------------- */
+  --ink-shadow-modal: 0 32px 80px rgba(27, 36, 31, 0.24),
+    0 2px 8px rgba(27, 36, 31, 0.08);
+  --ink-z-header: 20;
   --ink-z-panel: 40;
   --ink-z-modal: 60;
-  --ink-overlay: rgba(22, 33, 29, 0.34);
 
-  /* ---------------------------------------------------------------------
-     8. Acrylic. Selective material for layers that float above content.
-     Always paired with an opaque fallback.
-     --------------------------------------------------------------------- */
-  --ink-acrylic-blur: 16px;
-  --ink-acrylic-opacity: 0.84;
-  --ink-acrylic-background: rgba(250, 249, 245, var(--ink-acrylic-opacity));
-  --ink-acrylic-border: rgba(255, 255, 255, 0.45);
-  --ink-acrylic-translucency: 1; /* 0 when the user or browser prefers opacity */
-
-  /* ---------------------------------------------------------------------
-     9. Motion. Motion explains state changes.
-     --------------------------------------------------------------------- */
+  /* --- 动效 ----------------------------------------------------------- */
   --ink-ease-in: cubic-bezier(0.1, 0.9, 0.2, 1);
   --ink-ease-out: cubic-bezier(0.7, 0, 1, 0.5);
   --ink-ease-snap: cubic-bezier(0.17, 0.89, 0.32, 1.18);
   --ink-duration-hover: 200ms;
   --ink-duration-press: 140ms;
   --ink-duration-expand: 380ms;
+  --ink-duration-collapse: 240ms;
   --ink-duration-page: 420ms;
   --ink-stagger: 45ms;
-  --ink-hover-lift: -3px;
+  --ink-lift: -3px;
+  --ink-shift: 6px;
   --ink-press-scale: 0.975;
 }
 
-/* Respect the user's motion preference at the token level.
-   Components must not rely on animation completion to expose content. */
+/* 用户要求减少动效时，全部归零：不播动画，不做位移。 */
 @media (prefers-reduced-motion: reduce) {
   :root {
     --ink-duration-hover: 0ms;
     --ink-duration-press: 0ms;
     --ink-duration-expand: 0ms;
+    --ink-duration-collapse: 0ms;
     --ink-duration-page: 0ms;
     --ink-stagger: 0ms;
-    --ink-hover-lift: 0px;
+    --ink-lift: 0px;
+    --ink-shift: 0px;
     --ink-press-scale: 1;
   }
 }

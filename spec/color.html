@@ -1,307 +1,265 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>色彩 · INK Design Language</title>
-  <meta name="description" content="INK 色彩规范：八个色场、四个中性色与色场使用规则。">
-  <meta name="theme-color" content="#FAF9F5">
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../tokens.css">
-  <link rel="stylesheet" href="../assets/site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>色彩 · INK 设计语言</title>
+<meta name="description" content="INK 色彩规范：八个色场、八组中性色、对比度下限与用色规则。">
+<meta name="theme-color" content="#FAF9F5">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="canonical" href="https://knink-owo.github.io/INK-DesignLanguage/spec/color.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="INK 色彩规范：八个色场">
+<meta property="og:description" content="每块色场只放深墨文字，一个屏只出现一块。深墨对色场的对比度在 6.1 到 8.1 之间。">
+<meta property="og:url" content="https://knink-owo.github.io/INK-DesignLanguage/spec/color.html">
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到内容</a>
+<a class="skip-link" href="#main">跳到正文</a>
 
-  <header class="site-header">
+<header class="site-header">
+  <div class="wrap">
     <div class="site-header__inner">
-      <a class="brand" href="../index.html">INK <span class="brand__sub">/ Design Language</span></a>
-      <nav class="site-nav" aria-label="规范正文">
-        <a href="color.html" aria-current="page">色彩</a>
-        <a href="typography.html">文字</a>
-        <a href="space.html">空间</a>
-        <a href="components.html">组件</a>
-        <a href="voice-motion.html">语气与动效</a>
+      <a class="brand" href="../index.html">INK<span class="brand__sub">设计语言</span></a>
+      <nav class="site-nav" aria-label="章节">
+        <a class="site-nav__link" href="color.html" aria-current="page">色彩</a>
+        <a class="site-nav__link" href="typography.html">文字</a>
+        <a class="site-nav__link" href="space.html">空间</a>
+        <a class="site-nav__link" href="components.html">组件</a>
+        <a class="site-nav__link" href="voice-motion.html">文案与动效</a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="main">
-    <header class="chapter-hero">
-      <div class="wrap">
-        <div class="chapter-hero__meta">
-          <a class="kicker" href="../index.html">INK / 规范</a>
-          <span class="chip">CH 01 · COLOR</span>
-        </div>
-        <h1 class="h1 chapter-hero__title">色彩。<br>八个色场，一次只让一个说话。</h1>
-        <p class="lede chapter-hero__lede">INK 的底色是纸白，声音来自八个色场。它们不是调色盘，是八个可以站进去的「区块」；一屏之内，通常只允许一个色场开口。</p>
+<main id="main">
+  <section class="chapter-hero tone-lake">
+    <div class="wrap">
+      <div class="chapter-hero__inner">
+        <span class="mono-label chapter-hero__index">01 / 色彩</span>
+        <h1 class="chapter-hero__title">八个色场</h1>
+        <p class="chapter-hero__lede">每块色场只放深墨文字，一个屏只出现一块。中性色负责底、字和线。</p>
+        <p class="chapter-hero__meta">深墨 on 色场 6.1–8.1:1 / 白字 2.0–2.7:1 不用</p>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <div class="chapter-body">
-      <div class="wrap">
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">01 / PALETTE</span>
-              <h2 class="h2">八个色场</h2>
-            </div>
-            <p class="lede">每个色场只承担一种角色，六位十六进制、零渐变。色场是「这段属于哪个领域」的标记，不是装饰，不是重要性排序。</p>
-          </div>
+  <div class="field-wall" aria-label="八个色场与色值">
+    <div class="field tone-lake"><span class="field__name">湖蓝</span><span class="field__hex">#6EA8A3</span></div>
+    <div class="field tone-sky"><span class="field__name">天青</span><span class="field__hex">#87B9CE</span></div>
+    <div class="field tone-moss"><span class="field__name">苔绿</span><span class="field__hex">#8FB394</span></div>
+    <div class="field tone-lotus"><span class="field__name">藕荷</span><span class="field__hex">#A995C4</span></div>
+    <div class="field tone-wheat"><span class="field__name">麦金</span><span class="field__hex">#D2B173</span></div>
+    <div class="field tone-clay"><span class="field__name">陶土</span><span class="field__hex">#CE927C</span></div>
+    <div class="field tone-stone"><span class="field__name">石灰</span><span class="field__hex">#94A7B0</span></div>
+    <div class="field tone-rouge"><span class="field__name">胭脂</span><span class="field__hex">#C98D9B</span></div>
+  </div>
 
-          <div class="swatch-grid">
-            <article class="swatch" id="swatch-lake">
-              <div class="swatch__color tone-lake">
-                <span class="swatch__name">湖蓝 Lake</span>
-                <span>#6EA8A3</span>
-                <span>rgb(110 168 163)</span>
-              </div>
-              <div class="swatch__meta">
-                <span class="swatch__role">界面中最常出现的中间音。链接、主操作、静默的强调都归它—它不抢眼，但每页都有它。</span>
-                <span class="mono">--ink-lake</span>
-              </div>
-            </article>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">01 / 用法</span>
+        <h2 class="section-head__title">色场用来分类，强调用字重和留白</h2>
+        <p class="section-head__lede">色场是版面上的分区标记。需要强调时，加粗标题或加大留白，不动颜色。</p>
+      </div>
 
-            <article class="swatch" id="swatch-sky">
-              <div class="swatch__color tone-sky">
-                <span class="swatch__name">天青 Sky</span>
-                <span>#87B9CE</span>
-                <span>rgb(135 185 206)</span>
-              </div>
-              <div class="swatch__meta">
-                <span class="swatch__role">信息与说明。比湖蓝更轻，用在补充说明和流程提示，避免被误认为操作。</span>
-                <span class="mono">--ink-sky</span>
-              </div>
-            </article>
+      <div class="compare">
+        <div class="compare__col">
+          <div class="compare__title"><span class="mark mark--yes">推荐</span>深墨字放在色场上</div>
+          <p class="compare__example">湖蓝底 + #16211D 文字</p>
+          <p class="compare__note">八块色场对深墨的对比度在 6.1 到 8.1 之间，16px 正文和更小的字都够用。</p>
+        </div>
+        <div class="compare__col">
+          <div class="compare__title"><span class="mark mark--no">避免</span>白字放在色场上</div>
+          <p class="compare__example">湖蓝底 + 白色文字</p>
+          <p class="compare__note">白字对色场只有 2.0 到 2.7:1，任何字号都不合格。需要反白时，改用深墨 #1B241F 底。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <article class="swatch" id="swatch-moss">
-              <div class="swatch__color tone-moss">
-                <span class="swatch__name">苔绿 Moss</span>
-                <span>#8FB394</span>
-                <span>rgb(143 179 148)</span>
-              </div>
-              <div class="swatch__meta">
-                <span class="swatch__role">完成与通过。只表达「事情成了」；不表达「继续」—继续用深墨按钮。</span>
-                <span class="mono">--ink-moss</span>
-              </div>
-            </article>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">02 / 中性色</span>
+        <h2 class="section-head__title">八组中性色，各有分工</h2>
+        <p class="section-head__lede">页面底色始终是纸白，纯白只给输入框和浮层。文字只用墨和两档灰。</p>
+      </div>
 
-            <article class="swatch" id="swatch-lotus">
-              <div class="swatch__color tone-lotus">
-                <span class="swatch__name">藕荷 Lotus</span>
-                <span>#A995C4</span>
-                <span>rgb(169 149 196)</span>
-              </div>
-              <div class="swatch__meta">
-                <span class="swatch__role">创作与草稿。用户正在写、还没定稿的内容；正式结果不要用它。</span>
-                <span class="mono">--ink-lotus</span>
-              </div>
-            </article>
+      <div class="neutral-list">
+        <div class="neutral-row">
+          <span class="neutral-row__swatch" style="background: var(--ink-canvas)"></span>
+          <span class="neutral-row__name">纸白</span>
+          <span class="neutral-row__hex">#FAF9F5</span>
+          <span class="neutral-row__role">页面底色。不用纯白做底。</span>
+        </div>
+        <div class="neutral-row">
+          <span class="neutral-row__swatch" style="background: var(--ink-surface)"></span>
+          <span class="neutral-row__name">纯白</span>
+          <span class="neutral-row__hex">#FFFFFF</span>
+          <span class="neutral-row__role">只给输入框、浮层这类需要浮起来的表面。</span>
+        </div>
+        <div class="neutral-row">
+          <span class="neutral-row__swatch" style="background: var(--ink-ink)"></span>
+          <span class="neutral-row__name">墨</span>
+          <span class="neutral-row__hex">#26302C</span>
+          <span class="neutral-row__role">正文、标题、边线。对纸白 12.9:1。</span>
+        </div>
+        <div class="neutral-row">
+          <span class="neutral-row__swatch" style="background: var(--ink-ink-deep)"></span>
+          <span class="neutral-row__name">深墨</span>
+          <span class="neutral-row__hex">#1B241F</span>
+          <span class="neutral-row__role">页脚、代码块、反白区域。对白字 13.6:1。</span>
+        </div>
+        <div class="neutral-row">
+          <span class="neutral-row__swatch" style="background: var(--ink-ink-secondary)"></span>
+          <span class="neutral-row__name">次要灰</span>
+          <span class="neutral-row__hex">#5E6A64</span>
+          <span class="neutral-row__role">说明文字、次要信息。对纸白 5.36:1。</span>
+        </div>
+        <div class="neutral-row">
+          <span class="neutral-row__swatch" style="background: var(--ink-ink-muted)"></span>
+          <span class="neutral-row__name">弱化灰</span>
+          <span class="neutral-row__hex">#8B948E</span>
+          <span class="neutral-row__role">只用于线、图标或 24px 以上大字。对纸白 2.96:1。</span>
+        </div>
+        <div class="neutral-row">
+          <span class="neutral-row__swatch" style="background: var(--ink-line)"></span>
+          <span class="neutral-row__name">细线</span>
+          <span class="neutral-row__hex">#E5E8E1</span>
+          <span class="neutral-row__role">1px 分隔线。全站只用这一种线。</span>
+        </div>
+        <div class="neutral-row">
+          <span class="neutral-row__swatch" style="background: var(--ink-text-on-color)"></span>
+          <span class="neutral-row__name">色场字</span>
+          <span class="neutral-row__hex">#16211D</span>
+          <span class="neutral-row__role">只出现在色场上。不用纯黑。</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <article class="swatch" id="swatch-wheat">
-              <div class="swatch__color tone-wheat">
-                <span class="swatch__name">麦金 Wheat</span>
-                <span>#D2B173</span>
-                <span>rgb(210 177 115)</span>
-              </div>
-              <div class="swatch__meta">
-                <span class="swatch__role">标记与他人。高亮、批注、被提及；一屏只出现一处。</span>
-                <span class="mono">--ink-wheat</span>
-              </div>
-            </article>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">03 / 硬规则</span>
+        <h2 class="section-head__title">冲突时按这个顺序处理</h2>
+        <p class="section-head__lede">先删掉多余的色场，再用中性色分层，最后才考虑加新颜色。</p>
+      </div>
 
-            <article class="swatch" id="swatch-clay">
-              <div class="swatch__color tone-clay">
-                <span class="swatch__name">陶土 Clay</span>
-                <span>#CE927C</span>
-                <span>rgb(206 146 124)</span>
-              </div>
-              <div class="swatch__meta">
-                <span class="swatch__role">提醒与受阻。不是错误：错误用胭脂，提醒用陶土。</span>
-                <span class="mono">--ink-clay</span>
-              </div>
-            </article>
+      <div>
+        <div class="rule-row">
+          <span class="mono-label">01 / 一屏一块</span>
+          <h3 class="rule-row__title">一屏只出现一块色场</h3>
+          <p class="rule-row__text">同屏出现两块时删掉一块，第二块放到下一屏或下一章。色场相邻时，用 1px 细线分开。</p>
+        </div>
+        <div class="rule-row">
+          <span class="mono-label">02 / 只用深墨</span>
+          <h3 class="rule-row__title">色场里只放深墨文字</h3>
+          <p class="rule-row__text">白字对色场最多 2.7:1。需要反白时换成深墨 #1B241F 底，那里是 13.6:1。</p>
+        </div>
+        <div class="rule-row">
+          <span class="mono-label">03 / 不加色相</span>
+          <h3 class="rule-row__title">不新增颜色</h3>
+          <p class="rule-row__text">需要更多层级时，用纸白、纯白、墨、深墨、两档灰和细线。加渐变、加投影色都不算新层级。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <article class="swatch" id="swatch-stone">
-              <div class="swatch__color tone-stone">
-                <span class="swatch__name">石灰 Stone</span>
-                <span>#94A7B0</span>
-                <span>rgb(148 167 176)</span>
-              </div>
-              <div class="swatch__meta">
-                <span class="swatch__role">系统与工具。导航外壳、元信息、被折叠的次要区域。</span>
-                <span class="mono">--ink-stone</span>
-              </div>
-            </article>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">04 / 变量</span>
+        <h2 class="section-head__title">改色只改 tokens.css</h2>
+        <p class="section-head__lede">页面和组件里不写色值。下面这段可以从这里复制，也可以直接读文件。</p>
+      </div>
 
-            <article class="swatch" id="swatch-rouge">
-              <div class="swatch__color tone-rouge">
-                <span class="swatch__name">胭脂 Rouge</span>
-                <span>#C98D9B</span>
-                <span>rgb(201 141 155)</span>
-              </div>
-              <div class="swatch__meta">
-                <span class="swatch__role">错误与危险。只在需要用户停手时出现；出现后必须给出下一步。</span>
-                <span class="mono">--ink-rouge</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="callout" style="margin-top: var(--ink-space-5);">
-            <strong>一个色场，一次发言。</strong>同一屏里两个色场并列出现，等于两段话同时提高音量。需要并列时，用纸白隔开，或者改用文字层级。
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">02 / NEUTRALS</span>
-              <h2 class="h2">四个中性色</h2>
-            </div>
-            <p class="lede">中性色负责承重。纸白是底，面白是卡片，墨黑是正文与主按钮，深墨是色场上的字。没有纯黑，也没有纯白。</p>
-          </div>
-
-          <div class="grid grid--4">
-            <div class="panel">
-              <div class="swatch-mini" style="background: var(--ink-canvas);"></div>
-              <p><strong>纸白 Canvas</strong></p>
-              <p class="dim mono">--ink-canvas · #FAF9F5</p>
-              <p class="dim">默认页面底色。比纯白柔和一档，长时间阅读不刺眼。</p>
-            </div>
-            <div class="panel">
-              <div class="swatch-mini" style="background: var(--ink-surface);"></div>
-              <p><strong>面白 Surface</strong></p>
-              <p class="dim mono">--ink-surface · #FFFFFF</p>
-              <p class="dim">卡片与面板。只靠它和纸白之间的一层界线区分，不靠阴影。</p>
-            </div>
-            <div class="panel">
-              <div class="swatch-mini" style="background: var(--ink-ink);"></div>
-              <p><strong>墨黑 Ink</strong></p>
-              <p class="dim mono">--ink-ink · #26302C</p>
-              <p class="dim">正文与主按钮背景。不是纯黑，保留一点绿灰。</p>
-            </div>
-            <div class="panel">
-              <div class="swatch-mini" style="background: var(--ink-text-on-color);"></div>
-              <p><strong>深墨 On color</strong></p>
-              <p class="dim mono">--ink-text-on-color · #16211D</p>
-              <p class="dim">色场上的文字。与八个色场的对比度都在 6:1 以上，不要用白色压亮色块。</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">03 / RULES</span>
-              <h2 class="h2">怎么用，怎么不用</h2>
-            </div>
-            <p class="lede">颜色只回答「这段属于什么」，不回答「这有多重要」。重要性交给留白、字号和位置——这些是文字层面的决定，颜色不该越权。</p>
-          </div>
-
-          <div class="demo-stage" style="margin-bottom: var(--ink-space-5);">
-            <div class="tone-sky" style="padding: var(--ink-space-5); max-width: 380px;">
-              <p class="kicker kicker--on-color">INFO / 说明</p>
-              <p style="margin-top: var(--ink-space-3); line-height: 1.75;">这一段是补充说明。它不该看起来像按钮，所以用天青，而不是湖蓝。</p>
-            </div>
-            <div>
-              <p class="kicker kicker--ink">FIELD IN USE</p>
-              <p class="dim" style="margin-top: var(--ink-space-3); max-width: 26em;">色场可以包住一段话，但不改变它的角色。色场越大，里面的字越要克制。</p>
-            </div>
-          </div>
-
-          <div class="do-dont">
-            <div class="do-dont__panel do-dont__panel--do">
-              <p class="do-dont__head"><span aria-hidden="true">✓</span> DO / 这样做</p>
-              <div class="do-dont__body">
-                <p>一屏一个色场；色场之间隔纸白。</p>
-                <p>正文永远用墨黑；色场只做区块身份。</p>
-                <p>色场上的字用深墨 <code>#16211D</code>，不用白色。</p>
-                <p>一个按钮系统：深墨主按钮 + 湖蓝色场按钮，各一个。</p>
-              </div>
-            </div>
-            <div class="do-dont__panel do-dont__panel--dont">
-              <p class="do-dont__head"><span aria-hidden="true">✕</span> DON'T / 不要这样</p>
-              <div class="do-dont__body">
-                <p>不要白字压亮色块，也不要给色块加深色叠层来「救」可读性。</p>
-                <p>不要把八个色当成同一层的调色盘混着用。</p>
-                <p>不要用渐变、圆角或阴影修饰颜色。</p>
-                <p>不要用颜色表达重要性。</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">04 / TOKENS</span>
-              <h2 class="h2">变量</h2>
-            </div>
-            <p class="lede">全部颜色只从 <code class="mono">tokens.css</code> 取。页面里不写裸色值；确需一次性色块时才允许内联变量。</p>
-          </div>
-
-          <div class="code-block">
-            <div class="code-block__head">
-              <span>tokens.css · 色彩</span>
-              <button class="copy-btn" type="button" data-copy-target="#color-tokens">复制</button>
-            </div>
-            <pre id="color-tokens"><code>:root {
-  /* 八个色场 */
-  --ink-lake: #6EA8A3;    /* 湖蓝 · 主强调 */
-  --ink-sky: #87B9CE;     /* 天青 · 信息 */
-  --ink-moss: #8FB394;    /* 苔绿 · 积极 */
-  --ink-lotus: #A995C4;   /* 藕荷 · 创作 */
-  --ink-wheat: #D2B173;   /* 麦金 · 提醒 */
-  --ink-clay: #CE927C;    /* 陶土 · 活动 */
-  --ink-stone: #94A7B0;   /* 石灰 · 中性 */
-  --ink-rouge: #C98D9B;   /* 胭脂 · 错误 */
+      <div class="code-block">
+        <div class="code-block__head">
+          <span class="mono-label">tokens.css / 色场与中性色</span>
+          <button class="copy-btn" type="button" data-copy-target="#color-tokens"><span data-copy-label>复制</span></button>
+        </div>
+<pre class="code-block__body" id="color-tokens"><code>:root {
+  /* 色场：八个，各管一类信息 */
+  --ink-lake:   #6EA8A3;
+  --ink-sky:    #87B9CE;
+  --ink-moss:   #8FB394;
+  --ink-lotus:  #A995C4;
+  --ink-wheat:  #D2B173;
+  --ink-clay:   #CE927C;
+  --ink-stone:  #94A7B0;
+  --ink-rouge:  #C98D9B;
 
   /* 中性色 */
-  --ink-canvas: #FAF9F5;
-  --ink-surface: #FFFFFF;
-  --ink-ink: #26302C;
+  --ink-canvas:        #FAF9F5;
+  --ink-surface:       #FFFFFF;
+  --ink-ink:           #26302C;
+  --ink-ink-deep:      #1B241F;
   --ink-ink-secondary: #5E6A64;
-  --ink-line: #E5E8E1;
-
-  /* 语义别名 */
-  --ink-text-primary: var(--ink-ink);
-  --ink-text-secondary: #5E6A64;
+  --ink-ink-muted:     #8B948E;
+  --ink-line:          #E5E8E1;
   --ink-text-on-color: #16211D;
-  --ink-text-on-ink: #FFFFFF;
 }</code></pre>
-          </div>
-        </section>
-
-        <nav class="pager" aria-label="章节目录">
-          <a class="pager__link" href="../index.html">
-            <span class="pager__dir">← 上一页</span>
-            <span>首页 · 先感受，再解释</span>
-          </a>
-          <a class="pager__link pager__link--next" href="typography.html">
-            <span class="pager__dir">下一章 →</span>
-            <span>文字 · 让句子先站稳</span>
-          </a>
-        </nav>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
+  <div class="wrap">
+    <nav class="pager" aria-label="章节翻页">
+      <a class="pager__link" href="../index.html">
+        <span class="pager__dir">上一章</span>
+        <span class="pager__title">← 首页</span>
+      </a>
+      <a class="pager__link pager__link--next" href="typography.html">
+        <span class="pager__dir">下一章</span>
+        <span class="pager__title">文字 →</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <div class="site-footer__brand">INK</div>
+        <p class="site-footer__sub">面向中文界面的设计语言。数值在 tokens.css，规则在 DESIGN.md，验收在 AGENTS.md。零依赖、零构建、零外链字体。</p>
+      </div>
+
       <div>
-        <p class="kicker" style="margin-bottom: var(--ink-space-2);">INK / DESIGN LANGUAGE</p>
-        <p>v1.0 · 个人设计语言标本，不是产品页面模板。</p>
+        <div class="site-footer__title">规范</div>
+        <a class="site-footer__link" href="../index.html">首页</a>
+        <a class="site-footer__link" href="color.html">色彩</a>
+        <a class="site-footer__link" href="typography.html">文字</a>
+        <a class="site-footer__link" href="space.html">空间</a>
+        <a class="site-footer__link" href="components.html">组件</a>
+        <a class="site-footer__link" href="voice-motion.html">文案与动效</a>
       </div>
-      <div class="site-footer__links" aria-label="规范文件与链接">
-        <a href="../index.html">首页</a>
-        <a href="../DESIGN.md">DESIGN.md</a>
-        <a href="../tokens.css">tokens.css</a>
-        <a href="../AGENTS.md">AGENTS.md</a>
-        <a href="https://github.com/knink-owo/INK-DesignLanguage">GitHub ↗</a>
+
+      <div>
+        <div class="site-footer__title">文件</div>
+        <a class="site-footer__link" href="../DESIGN.md">DESIGN.md</a>
+        <a class="site-footer__link" href="../AGENTS.md">AGENTS.md</a>
+        <a class="site-footer__link" href="../tokens.css">tokens.css</a>
+        <a class="site-footer__link" href="../tokens.json">tokens.json</a>
+        <a class="site-footer__link" href="../llms.txt">llms.txt</a>
+      </div>
+
+      <div>
+        <div class="site-footer__title">源码</div>
+        <a class="site-footer__link" href="https://github.com/knink-owo/INK-DesignLanguage">GitHub</a>
+        <a class="site-footer__link" href="../README.md">站点说明</a>
       </div>
     </div>
-  </footer>
 
-  <script src="../assets/site.js" defer></script>
+    <div class="site-footer__bottom">
+      <span class="site-footer__fine">© 2026 INK · 静态站，零依赖</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
 </body>
 </html>

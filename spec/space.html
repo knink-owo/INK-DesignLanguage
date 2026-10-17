@@ -1,261 +1,290 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>空间 · INK Design Language</title>
-  <meta name="description" content="INK 空间规范：间距刻度、页面网格、留白原则、响应式断点与零圆角。">
-  <meta name="theme-color" content="#FAF9F5">
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../tokens.css">
-  <link rel="stylesheet" href="../assets/site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>空间 · INK 设计语言</title>
+<meta name="description" content="INK 空间规范：十级间距刻度、12 列网格、断点与 44px 触控目标。">
+<meta name="theme-color" content="#FAF9F5">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="canonical" href="https://knink-owo.github.io/INK-DesignLanguage/spec/space.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="INK 空间规范：间距与网格">
+<meta property="og:description" content="间距只用 4 到 128 的十个刻度；内容宽 1280，12 列网格，列距 16px。">
+<meta property="og:url" content="https://knink-owo.github.io/INK-DesignLanguage/spec/space.html">
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到内容</a>
+<a class="skip-link" href="#main">跳到正文</a>
 
-  <header class="site-header">
+<header class="site-header">
+  <div class="wrap">
     <div class="site-header__inner">
-      <a class="brand" href="../index.html">INK <span class="brand__sub">/ Design Language</span></a>
-      <nav class="site-nav" aria-label="规范正文">
-        <a href="color.html">色彩</a>
-        <a href="typography.html">文字</a>
-        <a href="space.html" aria-current="page">空间</a>
-        <a href="components.html">组件</a>
-        <a href="voice-motion.html">语气与动效</a>
+      <a class="brand" href="../index.html">INK<span class="brand__sub">设计语言</span></a>
+      <nav class="site-nav" aria-label="章节">
+        <a class="site-nav__link" href="color.html">色彩</a>
+        <a class="site-nav__link" href="typography.html">文字</a>
+        <a class="site-nav__link" href="space.html" aria-current="page">空间</a>
+        <a class="site-nav__link" href="components.html">组件</a>
+        <a class="site-nav__link" href="voice-motion.html">文案与动效</a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="main">
-    <header class="chapter-hero">
-      <div class="wrap">
-        <div class="chapter-hero__meta">
-          <a class="kicker" href="../index.html">INK / 规范</a>
-          <span class="chip">CH 03 · SPACE</span>
+<main id="main">
+  <section class="chapter-hero tone-moss">
+    <div class="wrap">
+      <div class="chapter-hero__inner">
+        <span class="mono-label chapter-hero__index">03 / 空间</span>
+        <h1 class="chapter-hero__title">留白按刻度走</h1>
+        <p class="chapter-hero__lede">间距只用 4 到 128 的十个刻度；12 列网格，内容宽 1280，分节留白 64 到 128。</p>
+        <p class="chapter-hero__meta">10 级刻度 / 12 列 / 44px 触控</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">01 / 间距</span>
+        <h2 class="section-head__title">十个刻度，4 到 128</h2>
+        <p class="section-head__lede">页面只从这十个数里取间距。跨级取数，不插新值。</p>
+      </div>
+
+      <div class="scale-list">
+        <div class="scale-row">
+          <span class="scale-row__name">space-1</span>
+          <span class="scale-row__value">4px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-1)"></div>
         </div>
-        <h1 class="h1 chapter-hero__title">空间。<br>留白是内容，不是没填满。</h1>
-        <p class="lede chapter-hero__lede">INK 的克制不靠少写，靠排得开。间距是节奏，网格是纪律；圆角为零，直角让每个区块站得更稳。</p>
+        <div class="scale-row">
+          <span class="scale-row__name">space-2</span>
+          <span class="scale-row__value">8px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-2)"></div>
+        </div>
+        <div class="scale-row">
+          <span class="scale-row__name">space-3</span>
+          <span class="scale-row__value">12px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-3)"></div>
+        </div>
+        <div class="scale-row">
+          <span class="scale-row__name">space-4</span>
+          <span class="scale-row__value">16px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-4)"></div>
+        </div>
+        <div class="scale-row">
+          <span class="scale-row__name">space-5</span>
+          <span class="scale-row__value">24px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-5)"></div>
+        </div>
+        <div class="scale-row">
+          <span class="scale-row__name">space-6</span>
+          <span class="scale-row__value">32px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-6)"></div>
+        </div>
+        <div class="scale-row">
+          <span class="scale-row__name">space-7</span>
+          <span class="scale-row__value">48px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-7)"></div>
+        </div>
+        <div class="scale-row">
+          <span class="scale-row__name">space-8</span>
+          <span class="scale-row__value">64px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-8)"></div>
+        </div>
+        <div class="scale-row">
+          <span class="scale-row__name">space-9</span>
+          <span class="scale-row__value">96px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-9)"></div>
+        </div>
+        <div class="scale-row">
+          <span class="scale-row__name">space-10</span>
+          <span class="scale-row__value">128px</span>
+          <div class="scale-row__bar" style="width: var(--ink-space-10)"></div>
+        </div>
       </div>
-    </header>
 
-    <div class="chapter-body">
-      <div class="wrap">
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">01 / SCALE</span>
-              <h2 class="h2">十级间距</h2>
-            </div>
-            <p class="lede">从 4px 到 128px，每一级只有一个变量可用。页面里不出现裸间距值；需要更细的间隔时，用行高而不是间距。</p>
-          </div>
-
-          <div class="scale-list">
-            <div class="scale-row">
-              <span class="mono">1 / 4px</span>
-              <div class="scale-row__bar" style="width: 4px;"></div>
-              <span class="scale-row__meta">--ink-space-1 · 图标与字之间</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">2 / 8px</span>
-              <div class="scale-row__bar" style="width: 8px;"></div>
-              <span class="scale-row__meta">--ink-space-2 · 控件内部</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">3 / 12px</span>
-              <div class="scale-row__bar" style="width: 12px;"></div>
-              <span class="scale-row__meta">--ink-space-3 · 小间距</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">4 / 16px</span>
-              <div class="scale-row__bar" style="width: 16px;"></div>
-              <span class="scale-row__meta">--ink-space-4 · 默认间距</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">5 / 24px</span>
-              <div class="scale-row__bar" style="width: 24px;"></div>
-              <span class="scale-row__meta">--ink-space-5 · 段落与面板</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">6 / 32px</span>
-              <div class="scale-row__bar" style="width: 32px;"></div>
-              <span class="scale-row__meta">--ink-space-6 · 组件分组</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">7 / 48px</span>
-              <div class="scale-row__bar" style="width: 48px;"></div>
-              <span class="scale-row__meta">--ink-space-7 · 小节之间</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">8 / 64px</span>
-              <div class="scale-row__bar" style="width: 64px;"></div>
-              <span class="scale-row__meta">--ink-space-8 · 区块之间</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">9 / 96px</span>
-              <div class="scale-row__bar" style="width: 96px;"></div>
-              <span class="scale-row__meta">--ink-space-9 · 章节之内</span>
-            </div>
-            <div class="scale-row">
-              <span class="mono">10 / 128px</span>
-              <div class="scale-row__bar" style="width: 128px;"></div>
-              <span class="scale-row__meta">--ink-space-10 · 章与章之间</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">02 / GRID</span>
-              <h2 class="h2">页面网格</h2>
-            </div>
-            <p class="lede">内容区最大 1200px，左右留 clamp(20px, 5vw, 64px)。移动端单列，桌面端最多六列；列间距恒为 16px。</p>
-          </div>
-
-          <div class="grid grid--3">
-            <div class="panel">
-              <span class="panel__label">WRAP / 内容区</span>
-              <p class="sample-h2" style="font-weight: 300;">1200<small class="dim" style="font-size: var(--ink-size-small);"> px</small></p>
-              <p class="dim mono">--ink-wrap</p>
-            </div>
-            <div class="panel">
-              <span class="panel__label">GUTTER / 左右留白</span>
-              <p class="sample-h2" style="font-weight: 300;">20–64<small class="dim" style="font-size: var(--ink-size-small);"> px</small></p>
-              <p class="dim mono">clamp(20px, 5vw, 64px)</p>
-            </div>
-            <div class="panel">
-              <span class="panel__label">HEADER / 顶栏高</span>
-              <p class="sample-h2" style="font-weight: 300;">64<small class="dim" style="font-size: var(--ink-size-small);"> px</small></p>
-              <p class="dim mono">--ink-header-h</p>
-            </div>
-          </div>
-
-          <div class="callout" style="margin-top: var(--ink-space-5);">
-            <strong>圆角恒为 0。</strong>所有面板、按钮、输入框、对话框都是直角。直角不是冷，是让内容对齐时有明确的边；需要柔和时，用留白，不用圆角。
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">03 / RHYTHM</span>
-              <h2 class="h2">节奏</h2>
-            </div>
-            <p class="lede">一屏只主张一件事。主张之后，用 48–96px 的空白让读者喘口气，再进入下一件事。</p>
-          </div>
-
-          <div class="grid grid--2">
-            <div class="panel">
-              <span class="panel__label">SECTION / 章节</span>
-              <p>章标题与引言之间 16px；引言与第一个模块之间 32–48px；模块之间 48–64px；章节之间 96px 起。</p>
-              <p class="dim">规则简单到可以背下来：越大的东西，离它上面的东西越远。</p>
-            </div>
-            <div class="panel">
-              <span class="panel__label">DENSITY / 密度</span>
-              <p>信息越密，越要靠行高和分组，而不是压缩间距。表格用 12px 内边距，正文用 24px 段距。</p>
-              <p class="dim">页面允许空。空的地方不是待填的坑，是让前面那句话被听见的停顿。</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">04 / BREAKPOINTS</span>
-              <h2 class="h2">断点</h2>
-            </div>
-            <p class="lede">只有两个断点，都按内容拥挤程度决定，不按设备名。980px 收窄网格，680px 收成单列。</p>
-          </div>
-
-          <div class="table-wrap">
-            <table class="spec-table">
-              <caption>响应式行为</caption>
-              <thead>
-                <tr>
-                  <th scope="col">断点</th>
-                  <th scope="col">变化</th>
-                  <th scope="col">不变</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="mono">&lt; 980px</td>
-                  <td>色场从 8 列变 4 列；三栏变一栏；章节头从双栏变单栏。</td>
-                  <td>字号阶梯、间距刻度、圆角与边框。</td>
-                </tr>
-                <tr>
-                  <td class="mono">&lt; 680px</td>
-                  <td>双栏、三栏、六栏全部单列；顶栏隐藏「给 Agent」；色场 2 列。</td>
-                  <td>正文不小于 16px；触控目标不小于 44px。</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="spec-section">
-          <div class="spec-head">
-            <div>
-              <span class="spec-head__index">05 / TOKENS</span>
-              <h2 class="h2">变量</h2>
-            </div>
-            <p class="lede">间距、圆角、内容区宽度、触控目标全部来自变量。布局代码里不出现裸 <code class="mono">px</code> 间距。</p>
-          </div>
-
-          <div class="code-block">
-            <div class="code-block__head">
-              <span>tokens.css · 间距与网格</span>
-              <button class="copy-btn" type="button" data-copy-target="#space-tokens">复制</button>
-            </div>
-            <pre id="space-tokens"><code>--ink-space-1: 4px;
---ink-space-2: 8px;
---ink-space-3: 12px;
---ink-space-4: 16px;
---ink-space-5: 24px;
---ink-space-6: 32px;
---ink-space-7: 48px;
---ink-space-8: 64px;
---ink-space-9: 96px;
---ink-space-10: 128px;
-
---ink-radius: 0px;
---ink-wrap: 1200px;
---ink-gutter: clamp(20px, 5vw, 64px);
---ink-header-h: 64px;
---ink-target-min: 44px;</code></pre>
-          </div>
-        </section>
-
-        <nav class="pager" aria-label="章节目录">
-          <a class="pager__link" href="typography.html">
-            <span class="pager__dir">← 上一章</span>
-            <span>文字 · 让句子先站稳</span>
-          </a>
-          <a class="pager__link pager__link--next" href="components.html">
-            <span class="pager__dir">下一章 →</span>
-            <span>组件 · 方角，清晰的边</span>
-          </a>
-        </nav>
-      </div>
+      <p class="note">4px 管图标与字之间，16px 是默认间距，64px 以上管区块和章节。</p>
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">02 / 网格</span>
+        <h2 class="section-head__title">12 列，内容宽 1280</h2>
+        <p class="section-head__lede">内容区最宽 1280px，左右留白在 20 到 56px 之间伸缩。列距恒为 16px。</p>
+      </div>
+
+      <div class="grid-demo" role="img" aria-label="12 列网格示意：第一行 12 个单列，第二行三块各跨 4 列">
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell"></div>
+        <div class="grid-demo__cell grid-demo__cell--span-4 grid-demo__cell--lake"></div>
+        <div class="grid-demo__cell grid-demo__cell--span-4 grid-demo__cell--lotus"></div>
+        <div class="grid-demo__cell grid-demo__cell--span-4 grid-demo__cell--moss"></div>
+      </div>
+
       <div>
-        <p class="kicker" style="margin-bottom: var(--ink-space-2);">INK / DESIGN LANGUAGE</p>
-        <p>v1.0 · 个人设计语言标本，不是产品页面模板。</p>
-      </div>
-      <div class="site-footer__links" aria-label="规范文件与链接">
-        <a href="../index.html">首页</a>
-        <a href="../DESIGN.md">DESIGN.md</a>
-        <a href="../tokens.css">tokens.css</a>
-        <a href="../AGENTS.md">AGENTS.md</a>
-        <a href="https://github.com/knink-owo/INK-DesignLanguage">GitHub ↗</a>
+        <div class="rule-row">
+          <span class="mono-label">01 / 内容区</span>
+          <h3 class="rule-row__title">最宽 1280px</h3>
+          <p class="rule-row__text">左右留白用 clamp(20px, 4vw, 56px)，随视口伸缩。宽屏不铺满，窄屏先收留白。</p>
+        </div>
+        <div class="rule-row">
+          <span class="mono-label">02 / 正文</span>
+          <h3 class="rule-row__title">最多跨 6 列</h3>
+          <p class="rule-row__text">12 列里一块正文最多占 6 列，列距 16px；再收进 34em 的阅读列，一行 30 到 45 个汉字。</p>
+        </div>
+        <div class="rule-row">
+          <span class="mono-label">03 / 演示</span>
+          <h3 class="rule-row__title">上行 12 列，下行 4 加 4 加 4</h3>
+          <p class="rule-row__text">第一行 12 个单列各占一列，第二行三块各跨 4 列。分栏按 4 的倍数走。</p>
+        </div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="../assets/site.js" defer></script>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">03 / 断点</span>
+        <h2 class="section-head__title">两个断点，按拥挤程度切</h2>
+        <p class="section-head__lede">980px 与 680px 各切一次。只调布局与栏数，不动字号和间距刻度。</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="spec-table">
+          <caption>在 375 / 768 / 1440 三档宽度检查无横向滚动</caption>
+          <thead>
+            <tr>
+              <th scope="col">宽度</th>
+              <th scope="col">变化</th>
+              <th scope="col">验收</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>≤ 980px</code></td>
+              <td>章节标题降一档；双栏并一栏；色墙 8 列变 4 列。</td>
+              <td>768 宽无横向滚动，正文列宽仍为 34em。</td>
+            </tr>
+            <tr>
+              <td><code>≤ 680px</code></td>
+              <td>顶栏只留品牌与紧凑导航；色墙 2 列；按钮通栏。</td>
+              <td>375 宽无横向滚动，导航横向滑动，触控目标 44px。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono-label section-head__index">04 / 变量</span>
+        <h2 class="section-head__title">间距、网格、触控只改这里</h2>
+        <p class="section-head__lede">下面这段是间距与几何的全部取值。页面里不写裸 px。</p>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__head">
+          <span class="mono-label">tokens.css / 间距与网格</span>
+          <button class="copy-btn" type="button" data-copy-target="#space-tokens"><span data-copy-label>复制</span></button>
+        </div>
+<pre class="code-block__body" id="space-tokens"><code>  /* 间距 */
+  --ink-space-1: 4px;
+  --ink-space-2: 8px;
+  --ink-space-3: 12px;
+  --ink-space-4: 16px;
+  --ink-space-5: 24px;
+  --ink-space-6: 32px;
+  --ink-space-7: 48px;
+  --ink-space-8: 64px;
+  --ink-space-9: 96px;
+  --ink-space-10: 128px;
+
+  /* 几何 */
+  --ink-radius: 0;
+  --ink-wrap: 1280px;
+  --ink-gutter: clamp(20px, 4vw, 56px);
+  --ink-header-h: 64px;
+  --ink-target: 44px;
+  --ink-measure: 34em;
+  --ink-border: 1px solid var(--ink-line);
+  --ink-border-strong: 1px solid var(--ink-ink);</code></pre>
+      </div>
+
+      <p class="note">圆角恒为 0，描边只有 1px 实线一种。</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <nav class="pager" aria-label="章节翻页">
+      <a class="pager__link" href="typography.html">
+        <span class="pager__dir">上一章</span>
+        <span class="pager__title">← 文字</span>
+      </a>
+      <a class="pager__link pager__link--next" href="components.html">
+        <span class="pager__dir">下一章</span>
+        <span class="pager__title">组件 →</span>
+      </a>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-col">
+        <div class="site-footer__brand">INK</div>
+        <p class="site-footer__sub">面向中文界面的设计语言。数值在 tokens.css，规则在 DESIGN.md，验收在 AGENTS.md。零依赖、零构建、零外链字体。</p>
+      </div>
+
+      <div>
+        <div class="site-footer__title">规范</div>
+        <a class="site-footer__link" href="../index.html">首页</a>
+        <a class="site-footer__link" href="color.html">色彩</a>
+        <a class="site-footer__link" href="typography.html">文字</a>
+        <a class="site-footer__link" href="space.html">空间</a>
+        <a class="site-footer__link" href="components.html">组件</a>
+        <a class="site-footer__link" href="voice-motion.html">文案与动效</a>
+      </div>
+
+      <div>
+        <div class="site-footer__title">文件</div>
+        <a class="site-footer__link" href="../DESIGN.md">DESIGN.md</a>
+        <a class="site-footer__link" href="../AGENTS.md">AGENTS.md</a>
+        <a class="site-footer__link" href="../tokens.css">tokens.css</a>
+        <a class="site-footer__link" href="../tokens.json">tokens.json</a>
+        <a class="site-footer__link" href="../llms.txt">llms.txt</a>
+      </div>
+
+      <div>
+        <div class="site-footer__title">源码</div>
+        <a class="site-footer__link" href="https://github.com/knink-owo/INK-DesignLanguage">GitHub</a>
+        <a class="site-footer__link" href="../README.md">站点说明</a>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span class="site-footer__fine">© 2026 INK · 静态站，零依赖</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
 </body>
 </html>
