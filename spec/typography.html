@@ -51,13 +51,13 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono-label section-head__index">01 / 字体</span>
-        <h2 class="section-head__title">三个角色，两套字体栈</h2>
-        <p class="section-head__lede">展示、正文、等宽各占一行；展示和正文共用一套系统无衬线，靠字重分开。</p>
+        <h2 class="section-head__title">三个角色，三套字体栈</h2>
+        <p class="section-head__lede">展示、正文、等宽各占一行；展示用系统里最重的黑体，正文和标题共用系统无衬线栈。</p>
       </div>
 
       <div class="type-list">
         <div class="type-row">
-          <div class="type-row__name">展示<span class="type-row__spec">--ink-font · 600</span></div>
+          <div class="type-row__name">展示<span class="type-row__spec">--ink-font-display · 700</span></div>
           <div class="type-row__sample sample--display">八色场 Aa</div>
         </div>
         <div class="type-row">
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <p class="note">全部系统字体，不下载字体文件。macOS 落苹方，Windows 落微软雅黑。</p>
+      <p class="note">全部系统字体，不下载字体文件。macOS 落苹方，Windows 落雅黑；首屏展示优先等线 Bold。</p>
     </div>
   </section>
 
@@ -84,7 +84,7 @@
 
       <div class="type-list">
         <div class="type-row">
-          <div class="type-row__name">展示<span class="type-row__spec">--ink-size-display · 600</span></div>
+          <div class="type-row__name">展示<span class="type-row__spec">--ink-size-display · 700</span></div>
           <div class="type-row__sample sample--display">八个色场</div>
         </div>
         <div class="type-row">
@@ -171,12 +171,15 @@
 <pre class="code-block__body" id="type-tokens"><code>  /* 字体 */
   --ink-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --ink-font-display: "DengXian", "PingFang SC", "HarmonyOS Sans SC",
+    "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --ink-font-mono: "Cascadia Code", "SFMono-Regular", Consolas,
     "Liberation Mono", monospace;
 
   /* 字重与字号 */
   --ink-weight-body: 400;
   --ink-weight-display: 600;
+  --ink-weight-hero: 700;
   --ink-weight-strong: 600;
 
   --ink-size-display: clamp(3.25rem, 8vw, 7.5rem);    /* 52 → 120px */
@@ -194,10 +197,11 @@
   --ink-leading-body: 1.75;
   --ink-tracking-display: -0.035em;
   --ink-tracking-label: 0.14em;
-  --ink-stroke-display: 1.6px;</code></pre>
+  --ink-stroke-display: 2.4px;
+  --ink-stroke-solid: 1.4px;</code></pre>
       </div>
 
-      <p class="note">字重只有 400 和 600 两档。标题用 600，正文用 400。</p>
+      <p class="note">字重分三档：正文 400，标题 600，首屏 700 加 1.4px 描边加粗。</p>
     </div>
   </section>
 

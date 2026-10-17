@@ -15,7 +15,7 @@
 
 1. **零依赖。** 没有框架、构建、CDN、外链字体、图标库。页面只引 `tokens.css`、`assets/site.css`、`assets/site.js`、`assets/favicon.svg`。
 2. **只用 token。** 颜色、字号、间距、时长都写 `var(--ink-*)`。不在页面里写 `#hex`、`rgb()`、裸 px 间距。
-3. **不新增设计语言。** 不加色相、不加圆角、不加渐变、不加玻璃拟态、不加第三种字体。
+3. **不新增设计语言。** 不加色相、不加圆角、不加渐变、不加玻璃拟态。字体只用系统栈：正文栈、展示栈（首屏专用）、等宽栈，不外链字体文件。
 4. **一屏一块色场。** 色场里只放 `--ink-text-on-color`。反白只放在 `--ink-ink-deep` 底上。
 5. **文案按 DESIGN.md 第 8 节。** 动词开头，给数字，一句一事。禁止破折号，禁止「不是……而是……」，禁止「让……」句式。
 6. **可访问性不回退。** skip link、`:focus-visible`、`aria-current`、44px 触控、`prefers-reduced-motion` 降级，一个都不能少。
@@ -154,7 +154,7 @@
 - **翻页：** `.pager` 加 `.pager__link`（`--next`），内部 `__dir`、`__title`。
 - **浮层：** `<dialog class="sheet" id="…">` 加 `.sheet__inner/__head/__title/__close/__body/__steps/__step/__step-num/__step-title/__step-text/__actions`。触发写 `data-sheet-open="id"`，关闭写 `data-sheet-close`。
 - **页脚：** `.site-footer` 四列加 `.site-footer__bottom`，示例触发按钮用 `.link-button`。
-- **轮廓字：** `.display__outline` 用 600 字重 + `-webkit-text-stroke: var(--ink-stroke-display)`（桌面 1.6px，980px 及以下 1.4px，680px 及以下 1.2px），形状填透明。不要写裸描边宽度，也不要给轮廓字加滤镜或加粗到 700。
+- **轮廓字：** 首屏两行都用展示字体（`--ink-font-display`，等线 Bold）。第一行 `.display__line` 实心，靠 `-webkit-text-stroke: var(--ink-stroke-solid)` 加粗；第二行 `.display__outline` 是整字空心，靠 `index.html` 顶部的 SVG 滤镜（`#ink-outline` / `-md` / `-sm`）先合并字形再取外轮廓环。半径只在 SVG `defs` 与 `site.css` 的两个断点里写，不要分散到页面。不支持 URL 滤镜时自动退回描边。
 - **目录行：** `.chapter-index` 加 `a.chapter-row`（`--lake` 等八种色），内部 `__num`、`__title`、`__lede`、`__arrow`。悬停时整行填色。
 
 新增 class 之前先看 `site.css` 有没有现成的；没有就用现成组合表达，并在提交说明里写清楚。页面里不写 `<style>`。

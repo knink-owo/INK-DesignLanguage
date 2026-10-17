@@ -20,6 +20,32 @@
 <body>
 <a class="skip-link" href="#main">跳到正文</a>
 
+<svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <filter id="ink-outline" x="-16%" y="-16%" width="132%" height="132%" color-interpolation-filters="sRGB">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="3" result="fat"></feMorphology>
+      <feMorphology in="fat" operator="erode" radius="3" result="inner"></feMorphology>
+      <feComposite in="fat" in2="inner" operator="out" result="ring"></feComposite>
+      <feFlood></feFlood>
+      <feComposite in2="ring" operator="in"></feComposite>
+    </filter>
+    <filter id="ink-outline-md" x="-16%" y="-16%" width="132%" height="132%" color-interpolation-filters="sRGB">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="fat"></feMorphology>
+      <feMorphology in="fat" operator="erode" radius="2" result="inner"></feMorphology>
+      <feComposite in="fat" in2="inner" operator="out" result="ring"></feComposite>
+      <feFlood></feFlood>
+      <feComposite in2="ring" operator="in"></feComposite>
+    </filter>
+    <filter id="ink-outline-sm" x="-16%" y="-16%" width="132%" height="132%" color-interpolation-filters="sRGB">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="fat"></feMorphology>
+      <feMorphology in="fat" operator="erode" radius="1" result="inner"></feMorphology>
+      <feComposite in="fat" in2="inner" operator="out" result="ring"></feComposite>
+      <feFlood></feFlood>
+      <feComposite in2="ring" operator="in"></feComposite>
+    </filter>
+  </defs>
+</svg>
+
 <header class="site-header">
   <div class="wrap">
     <div class="site-header__inner">

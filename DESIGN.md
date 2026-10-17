@@ -100,6 +100,7 @@ INK 是一套面向中文界面的设计语言。八个色场负责分区，1px 
 全部用系统字体，不下载字体文件。
 
 - 正文：`-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif`
+- 首屏展示：`"DengXian", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif`（几何黑体，笔画均匀、字洞大，适合整字空心）
 - 等宽：`"Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace`
 
 macOS 落苹方，Windows 落微软雅黑，Linux 落 Noto Sans SC。不引第三方字体，也不做字号回退网络请求。
@@ -118,11 +119,11 @@ macOS 落苹方，Windows 落微软雅黑，Linux 落 Noto Sans SC。不引第�
 | `--ink-size-mono` | 代码 | 12px |
 | `--ink-size-label` | 等宽标签 | 11px |
 
-字重只留两档：正文 400，标题 600。没有 300。字重够重，字号才敢放大，也才压得住色块。
+字重分三档：正文 400，章节标题 600，首屏字标 700 再加 1.4px 描边提重。没有 300。字重够重，字号才敢放大，也才压得住色块。
 
 行高：标题 1.14，正文 1.75，首屏 1.0。字距：首屏 -0.035em，全大写等宽标签 0.14em。
 
-首屏第二行做整字空心框：600 字重，形状填透明，沿字形描 1.6px 墨色轮廓（`--ink-stroke-display`）。980px 及以下降到 1.4px，680px 及以下降到 1.2px。描边比笔画细，空心只沿每根笔画走一圈；浏览器不支持描边时退回实心墨字。
+首屏两行同一套展示字体（等线 Bold，Windows；苹方 Semibold，macOS）：第一行实心，第二行整字空心。空心不是沿每根笔画描边（笔画之间会断开、密集处发糊），而是先用 SVG `feMorphology` 把整个字形外扩、合并成一块，再减去内缩的形状，只留下外轮廓环：外扩与环宽桌面都是 3px；980px 及以下收到 2px，680px 及以下收到 1px。滤镜定义在 `index.html` 顶部的 SVG `defs`（`#ink-outline` / `-md` / `-sm`）。浏览器不支持 URL 滤镜时退回 2.4px 墨色描边（`--ink-stroke-display`，窄屏 2 / 1.6px），观感接近，但笔画之间不会合并。
 
 ### 4.3 中文排版
 

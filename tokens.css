@@ -52,12 +52,16 @@
   /* --- 字体 ----------------------------------------------------------- */
   --ink-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  /* 展示栈：等线/苹方这类几何黑体，笔画均匀、字洞大，适合做整字空心。 */
+  --ink-font-display: "DengXian", "PingFang SC", "HarmonyOS Sans SC",
+    "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --ink-font-mono: "Cascadia Code", "SFMono-Regular", Consolas,
     "Liberation Mono", monospace;
 
   /* --- 字重与字号 ----------------------------------------------------- */
   --ink-weight-body: 400;
-  --ink-weight-display: 600;
+  --ink-weight-display: 600;   /* 章节标题、小节标题 */
+  --ink-weight-hero: 700;      /* 首屏两行：等线 Bold / 苹方 Semibold */
   --ink-weight-strong: 600;
 
   --ink-size-display: clamp(3.25rem, 8vw, 7.5rem);    /* 52 → 120px */
@@ -75,7 +79,9 @@
   --ink-leading-body: 1.75;
   --ink-tracking-display: -0.035em;
   --ink-tracking-label: 0.14em;
-  --ink-stroke-display: 1.6px;   /* 轮廓字描边；980 → 1.4，680 → 1.2 */
+  --ink-stroke-display: 2.4px;   /* 轮廓字兜底描边；980 → 2，680 → 1.6 */
+  --ink-stroke-solid: 1.4px;     /* 首屏实心行加粗描边；680 → 1px */
+
 
   /* --- 间距：只用这十个数 --------------------------------------------- */
   --ink-space-1: 4px;
