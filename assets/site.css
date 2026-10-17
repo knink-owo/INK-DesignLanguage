@@ -204,6 +204,10 @@ a { color: var(--ink-link); text-decoration-thickness: 1px; text-underline-offse
   display: block;
 }
 
+.display__line--accent {
+  color: var(--ink-text-lake);
+}
+
 .hero__lead {
   max-width: 30em;
   margin-top: clamp(var(--ink-space-5), 4vh, var(--ink-space-7));

@@ -154,7 +154,7 @@
 - **翻页：** `.pager` 加 `.pager__link`（`--next`），内部 `__dir`、`__title`。
 - **浮层：** `<dialog class="sheet" id="…">` 加 `.sheet__inner/__head/__title/__close/__body/__steps/__step/__step-num/__step-title/__step-text/__actions`。触发写 `data-sheet-open="id"`，关闭写 `data-sheet-close`。
 - **页脚：** `.site-footer` 四列加 `.site-footer__bottom`，示例触发按钮用 `.link-button`。
-- **首屏大字：** `.display` 两行都用展示字体（`--ink-font-display`，等线 Bold / 苹方 Semibold），700 字重，都是实心墨色，各用 `.display__line`。不用空心字、不加描边、不引外部字体；`.display__outline` 已废弃。
+- **首屏大字：** `.display` 两行都用展示字体（`--ink-font-display`，等线 Bold / 苹方 Semibold），700 字重，各用 `.display__line`。第一行墨色；第二行加 `.display__line--accent`，用 `--ink-text-lake`（`#5C8A85`，纸白底 3.67:1，只给大号标题）。原色湖蓝不做文字，不用空心字、不加描边、不引外部字体。
 - **目录行：** `.chapter-index` 加 `a.chapter-row`（`--lake` 等八种色），内部 `__num`、`__title`、`__lede`、`__arrow`。悬停时整行填色。
 
 新增 class 之前先看 `site.css` 有没有现成的；没有就用现成组合表达，并在提交说明里写清楚。页面里不写 `<style>`。
