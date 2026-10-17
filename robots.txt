@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://knink-owo.github.io/INK-DesignLanguage/sitemap.xml
