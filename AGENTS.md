@@ -1,6 +1,6 @@
 # AGENTS.md · INK 页面实现规则
 
-给照着 INK 写页面的 Agent 看。人读的「为什么」在 `DESIGN.md`，数值只改 `tokens.css`，机器可读副本是 `tokens.json`。
+给照着 INK 写页面的 Agent 看。人读的「为什么」在 `DESIGN.md`，数值只改 `tokens.css`，机器可读副本是 `tokens.json`。要把 INK 搬到别的项目，读 `VIBECODING.md`。
 
 开工顺序：
 

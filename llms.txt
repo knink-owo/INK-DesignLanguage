@@ -9,6 +9,7 @@
 - [AGENTS.md](https://knink-owo.github.io/INK-DesignLanguage/AGENTS.md)：怎么做，页面骨架与验收清单
 - [tokens.css](https://knink-owo.github.io/INK-DesignLanguage/tokens.css)：唯一数值源
 - [tokens.json](https://knink-owo.github.io/INK-DesignLanguage/tokens.json)：机器可读副本（由 tools/sync_tokens.py 生成）
+- [VIBECODING.md](https://knink-owo.github.io/INK-DesignLanguage/VIBECODING.md)：把 INK 搬到新项目，含拷贝清单、开工提示词、替代验收
 
 ## 五章
 
