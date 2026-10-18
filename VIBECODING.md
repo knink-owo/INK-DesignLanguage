@@ -72,7 +72,7 @@ https://knink-owo.github.io/INK-DesignLanguage/spec/color.html
 https://raw.githubusercontent.com/knink-owo/INK-DesignLanguage/<commit>/AGENTS.md
 ```
 
-当前发布 HEAD：`c0b826267c5bcb45c829cf3b194f7d17ba499d40`。
+写本文时的发布 HEAD：`6c273f8000e3cf0d067338bc4d05a653500ef0f1`。最新 commit 看 <https://github.com/knink-owo/INK-DesignLanguage/commits/main>。
 
 ---
 
